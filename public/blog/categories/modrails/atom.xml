@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: modrails | Reza Jatnika]]></title>
+  <link href="http://reza.re/blog/categories/modrails/atom.xml" rel="self"/>
+  <link href="http://reza.re/"/>
+  <updated>2013-06-15T04:09:26+07:00</updated>
+  <id>http://reza.re/</id>
+  <author>
+    <name><![CDATA[Reza Jatnika]]></name>
+    <email><![CDATA[reza@reza.re]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hosting Rails Applications on Nginx]]></title>
+    <link href="http://reza.re/blog/2012/host-rails-application-with-nginx-and-passenger/"/>
+    <updated>2012-10-13T01:18:13+07:00</updated>
+    <id>http://reza.re/blog/2012/host-rails-application-with-nginx-and-passenger</id>
+    <content type="html"><![CDATA[<p>Hosting and deploying Ruby on Rails application became very easy with <a href="http://www.modrails.com/">Phusion Passenger</a> or <code>mod_rails</code>. Phusion Passenger is an nginx module, which makes deploying Ruby and Ruby on Rails applications on nginx a breeze. This guide describes the required process for deploying Ruby on Rails with Passenger and the nginx web server on CentOS 6. Assume we have installed nginx and Ruby on Rails.</p>
+
+<h2>Install Nginx with Phusion Passenger</h2>
+
+<p>First, install the Phusion Passenger gem by running:
+{% codeblock %}</p>
+
+<h1>gem install passenger</h1>
+
+<p>{% endcodeblock %}
+Next, run the Phusion Passenger installer for nginx:
+{% codeblock %}</p>
+
+<h1>passenger-install-nginx-module</h1>
+
+<p>{% endcodeblock %}
+When promted, choose &ldquo;1&rdquo; to allow the installer to automatically download, compile, and install nginx on the system (on <code>opt</code> folder by default). Because we have installed nginx before, copy <code>/opt/nginx/sbin/nginx</code> to <code>/usr/sbin/</code>. If nginx daemon are running, stop it first.
+{% codeblock %}</p>
+
+<h1>/etc/init.d/nginx stop</h1>
+
+<h1>cp /opt/sbin/nginx /usr/sbin/</h1>
+
+<p>{% endcodeblock %}
+Now, we have a new nginx binary with Passenger support without changing any existing configurations. To enable Passenger support, add these lines to <code>/etc/nginx/nginx.conf</code>.
+{% codeblock %}
+http {</p>
+
+<pre><code>...
+passenger_root /usr/local/rvm/gems/ruby-1.9.3-p194/gems/passenger-3.0.17;
+passenger_ruby /usr/local/rvm/wrappers/ruby-1.9.3-p194/ruby;
+...
+</code></pre>
+
+<p>{% endcodeblock %}
+To see Ruby path:
+{% codeblock %}</p>
+
+<h1>which ruby</h1>
+
+<p>{% endcodeblock %}
+Passenger root folder usually lies in <code>/yourruby/gems/passenger-x.x.x</code>. Even the installation will recognize your Ruby and Passenger location, it&rsquo;s good the check it manually.</p>
+
+<h2>Hosting Rails Application</h2>
+
+<p>As I mentioned before, hosting Rails applications became very simple with Passenger. As simple as creating a new virtual host. Create a new configuration files, for example <code>railsapp.example.org.conf</code> in <code>/etc/nginx/conf.d/</code>, add these lines:
+{% codeblock %}
+server {</p>
+
+<pre><code>listen 80;
+server_name railsapp.example.org;
+passenger_enabled on;
+passenger_use_global_queue on;
+root /path/to/railsapp/public;
+</code></pre>
+
+<p>}
+{% endcodeblock %}
+Start nginx to reload new configurations.
+{% codeblock %}</p>
+
+<h1>/etc/init.d/nginx start</h1>
+
+<p>{% endcodeblock %}
+For detailed guides see <a href="http://www.modrails.com/documentation/">Passenger documentation</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

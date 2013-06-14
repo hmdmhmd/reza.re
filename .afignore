@@ -1,0 +1,11 @@
+# Local config
+config.ru
+
+.sass-cache/
+.gist-cache/
+.pygments-cache/
+
+.themes/
+
+.gitignore
+.gitattributes

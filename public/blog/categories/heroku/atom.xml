@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: heroku | Reza Jatnika]]></title>
+  <link href="http://reza.re/blog/categories/heroku/atom.xml" rel="self"/>
+  <link href="http://reza.re/"/>
+  <updated>2013-06-15T04:09:26+07:00</updated>
+  <id>http://reza.re/</id>
+  <author>
+    <name><![CDATA[Reza Jatnika]]></name>
+    <email><![CDATA[reza@reza.re]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Improving Octopress Performance]]></title>
+    <link href="http://reza.re/blog/2013/improving-octopress-performance/"/>
+    <updated>2013-06-13T12:08:00+07:00</updated>
+    <id>http://reza.re/blog/2013/improving-octopress-performance</id>
+    <content type="html"><![CDATA[<p>This is how I improving octopress website based, it&rsquo;s covers Cloudflare DNS/CDN management and configuration of heroku and sinatra.</p>
+
+<h2>DNS and CDN Management</h2>
+
+<p>CloudFlare is more than just a DNS, their service includes a CDN, page acceleration, security checking, DDOS protection, and more. However, you can switch all that off and just use their DNS. They delivered marginally the best performance. In terms of pricing, if you don’t need SSL, it’s free; if you do need SSL, then your first site is $240 per year, subsequent sites $60 per year.</p>
+
+<p>My example sites:</p>
+
+<ul>
+<li><a href="http://reza.re">reza.re</a> &ndash; Cloudflare + CDN</li>
+<li><a href="http://direct.reza.re">direct.reza.re</a> &ndash; Cloudflare</li>
+</ul>
+
+
+<h2>Heroku and Sinatra</h2>
+
+<p> The default configuration for Octopress and Heroku is to use Sinatra, which in turn means that Heroku will serve your traffic using Webrick. The result is one Heroku instance running one web server. If you use Unicorn, you can get multiple instances running within it; in the configuration described below, this results in four times the capacity.</p>
+
+<p>Add Unicorn to the <code>Gemfile</code> outside of the development group:</p>
+
+<p>{% codeblock Gemfile lang:ruby %}
+source &ldquo;<a href="http://rubygems.org">http://rubygems.org</a>&rdquo;</p>
+
+<p>group :development do
+  # all default gems
+end</p>
+
+<p>gem &lsquo;sinatra&rsquo;, &lsquo;~> 1.4.2&rsquo;
+gem &lsquo;unicorn&rsquo;</p>
+
+<p>{% endcodeblock %}</p>
+
+<p>Add a <code>unicorn.rb</code> file in the root directory of your application:</p>
+
+<p>{% codeblock unicorn.rb lang:ruby %}
+worker_processes 4
+timeout 30
+preload_app true
+{% endcodeblock %}</p>
+
+<p>Add a <code>Procfile</code> file in the root directory of your application:</p>
+
+<p>{% codeblock Procfile lang:ruby %}
+web: bundle exec unicorn -p $PORT -c ./unicorn.rb
+{% endcodeblock %}</p>
+
+<p>That&rsquo;s it. You can test your website performance score using <a href="https://developers.google.com/speed/pagespeed/insights#">Google PageSpeed</a> and see suggestion summary.</p>
+]]></content>
+  </entry>
+  
+</feed>

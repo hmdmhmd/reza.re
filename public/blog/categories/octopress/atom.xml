@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-15T09:16:46+07:00</updated>
+  <updated>2013-06-15T09:37:47+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -36,55 +36,98 @@ $ af login
 
 <p>Create an <code>app.rb</code> file to handle <code>SinatraStaticServer</code> class.</p>
 
-<p>{% codeblock app.rb lang:ruby %}
-require &lsquo;bundler/setup&rsquo;
-require &lsquo;sinatra&rsquo;</p>
-
-<h1>The project root directory</h1>
-
-<p>$root = ::File.dirname(<strong>FILE</strong>)</p>
-
-<p>  get(/.+/) do</p>
-
-<pre><code>send_sinatra_file(request.path) {404}
-</code></pre>
-
-<p>  end</p>
-
-<p>  not_found do</p>
-
-<pre><code>send_file(File.join(File.dirname(__FILE__), 'public', '404.html'), {:status =&gt; 404})
-</code></pre>
-
-<p>  end</p>
-
-<p>  def send_sinatra_file(path, &amp;missing_file_block)</p>
-
-<pre><code>file_path = File.join(File.dirname(__FILE__), 'public',  path)
-file_path = File.join(file_path, 'index.html') unless file_path =~ /\.[a-z]+$/i
-File.exist?(file_path) ? send_file(file_path) : missing_file_block.call
-</code></pre>
-
-<p>  end
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>app.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">bundler</span><span class="o">/</span><span class="n">setup</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
+</span><span class='line'><span class="nb">require</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">sinatra</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;h1&gt;The project root directory&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="vg">$root</span> <span class="o">=</span> <span class="o">::</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="no">FILE</span><span class="o">&lt;</span><span class="sr">/strong&gt;)&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="n">get</span><span class="p">(</span><span class="sr">/.+/</span><span class="p">)</span> <span class="k">do</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;send_sinatra_file(request.path) {404}</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;  end&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="n">not_found</span> <span class="k">do</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;send_file(File.join(File.dirname(__FILE__), &#39;public&#39;, &#39;404.html&#39;), {:status =&amp;gt; 404})</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;  end&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">def</span> <span class="nf">send_sinatra_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">missing_file_block</span><span class="p">)</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;file_path = File.join(File.dirname(__FILE__), &#39;public&#39;,  path)</span>
+</span><span class='line'><span class="sr">file_path = File.join(file_path, &#39;index.html&#39;) unless file_path =~ /</span><span class="p">\</span><span class="o">.</span><span class="n">[a</span><span class="o">-</span><span class="n">z</span><span class="o">]+</span><span class="vg">$/</span><span class="n">i</span>
+</span><span class='line'><span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="p">?</span> <span class="n">send_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="p">:</span> <span class="n">missing_file_block</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Create <code>.afignore</code>, it&rsquo;s similar to <code>.gitignore</code> in git.</p>
 
-<p>{% codeblock .afignore %}</p>
-
-<h1>Local config</h1>
-
-<p>config.ru</p>
-
-<p>.sass-cache/
-.gist-cache/
-.pygments-cache/</p>
-
-<p>.themes/</p>
-
-<p>.gitignore
-.gitattributes
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>.afignore </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>Local config&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>config.ru&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>.sass-cache/
+</span><span class='line'>.gist-cache/
+</span><span class='line'>.pygments-cache/&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>.themes/&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>.gitignore
+</span><span class='line'>.gitattributes</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>We include <code>config.ru</code> because we already have <code>app.rb</code> to handle Sinatra.</p>
 
@@ -98,25 +141,46 @@ $ af push --runtime ruby193
 
 <p>Choose Sinatra application not Rack application. Save the configuration file, it&rsquo;s looks like this.</p>
 
-<h2>{% codeblock manifest.yml lang:yaml %}</h2>
-
-<p>applications:
-  .:</p>
-
-<pre><code>name: rezare
-framework:
-  name: sinatra
-  info:
-    mem: 128M
-    description: Sinatra Application
-    exec: 
-infra: ap-aws
-url: ${name}.${target-base}
-mem: 512M
-instances: 1
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<h2><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>manifest.yml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">&lt;/h2&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;p&gt;applications</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">.:&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;pre&gt;&lt;code&gt;name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rezare</span>
+</span><span class='line'><span class="l-Scalar-Plain">framework</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sinatra</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">info</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">mem</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">128M</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sinatra Application</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">exec</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="l-Scalar-Plain">infra</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ap-aws</span>
+</span><span class='line'><span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${name}.${target-base}</span>
+</span><span class='line'><span class="l-Scalar-Plain">mem</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">512M</span>
+</span><span class='line'><span class="l-Scalar-Plain">instances</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>To update our application run:</p>
 
@@ -157,31 +221,46 @@ $ af update
 
 <p>Add Unicorn to the <code>Gemfile</code> outside of the development group:</p>
 
-<p>{% codeblock Gemfile lang:ruby %}
-source &ldquo;<a href="http://rubygems.org">http://rubygems.org</a>&rdquo;</p>
-
-<p>group :development do
-  # all default gems
-end</p>
-
-<p>gem &lsquo;sinatra&rsquo;, &lsquo;~> 1.4.2&rsquo;
-gem &lsquo;unicorn&rsquo;</p>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Gemfile </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;http://rubygems.org&quot;</span><span class="o">&gt;</span><span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">rubygems</span><span class="o">.</span><span class="n">org</span><span class="o">&lt;</span><span class="sr">/a&gt;&amp;rdquo;&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+</span><span class='line'>  <span class="c1"># all default gems</span>
+</span><span class='line'><span class="k">end</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;gem &amp;lsquo;sinatra&amp;rsquo;, &amp;lsquo;~&gt; 1.4.2&amp;rsquo;</span>
+</span><span class='line'><span class="sr">gem &amp;lsquo;unicorn&amp;rsquo;&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Add a <code>unicorn.rb</code> file in the root directory of your application:</p>
 
-<p>{% codeblock unicorn.rb lang:ruby %}
-worker_processes 4
-timeout 30
-preload_app true
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>unicorn.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">worker_processes</span> <span class="mi">4</span>
+</span><span class='line'><span class="n">timeout</span> <span class="mi">30</span>
+</span><span class='line'><span class="n">preload_app</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Add a <code>Procfile</code> file in the root directory of your application:</p>
 
-<p>{% codeblock Procfile lang:ruby %}
-web: bundle exec unicorn -p $PORT -c ./unicorn.rb
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Procfile </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">web</span><span class="p">:</span> <span class="n">bundle</span> <span class="nb">exec</span> <span class="n">unicorn</span> <span class="o">-</span><span class="nb">p</span> <span class="vg">$PORT</span> <span class="o">-</span><span class="n">c</span> <span class="o">.</span><span class="n">/unicorn</span><span class="o">.</span><span class="n">rb</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>That&rsquo;s it. You can test your website performance score using <a href="https://developers.google.com/speed/pagespeed/insights#">Google PageSpeed</a> and see suggestion summary.</p>
 ]]></content>

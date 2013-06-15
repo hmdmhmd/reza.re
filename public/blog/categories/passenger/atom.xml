@@ -4,7 +4,7 @@
   <title><![CDATA[Category: passenger | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/passenger/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-15T09:16:46+07:00</updated>
+  <updated>2013-06-15T09:37:47+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -23,65 +23,108 @@
 <h2>Install Nginx with Phusion Passenger</h2>
 
 <p>First, install the Phusion Passenger gem by running:
-{% codeblock %}</p>
-
-<h1>gem install passenger</h1>
-
-<p>{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>gem install passenger&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
 Next, run the Phusion Passenger installer for nginx:
-{% codeblock %}</p>
-
-<h1>passenger-install-nginx-module</h1>
-
-<p>{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>passenger-install-nginx-module&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
 When promted, choose &ldquo;1&rdquo; to allow the installer to automatically download, compile, and install nginx on the system (on <code>opt</code> folder by default). Because we have installed nginx before, copy <code>/opt/nginx/sbin/nginx</code> to <code>/usr/sbin/</code>. If nginx daemon are running, stop it first.
-{% codeblock %}</p>
-
-<h1>/etc/init.d/nginx stop</h1>
-
-<h1>cp /opt/sbin/nginx /usr/sbin/</h1>
-
-<p>{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>/etc/init.d/nginx stop&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>cp /opt/sbin/nginx /usr/sbin/&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
 Now, we have a new nginx binary with Passenger support without changing any existing configurations. To enable Passenger support, add these lines to <code>/etc/nginx/nginx.conf</code>.
-{% codeblock %}
-http {</p>
-
-<pre><code>...
-passenger_root /usr/local/rvm/gems/ruby-1.9.3-p194/gems/passenger-3.0.17;
-passenger_ruby /usr/local/rvm/wrappers/ruby-1.9.3-p194/ruby;
-...
-</code></pre>
-
-<p>{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>...
+</span><span class='line'>passenger_root /usr/local/rvm/gems/ruby-1.9.3-p194/gems/passenger-3.0.17;
+</span><span class='line'>passenger_ruby /usr/local/rvm/wrappers/ruby-1.9.3-p194/ruby;
+</span><span class='line'>...
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
 To see Ruby path:
-{% codeblock %}</p>
-
-<h1>which ruby</h1>
-
-<p>{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>which ruby&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
 Passenger root folder usually lies in <code>/yourruby/gems/passenger-x.x.x</code>. Even the installation will recognize your Ruby and Passenger location, it&rsquo;s good the check it manually.</p>
 
 <h2>Hosting Rails Application</h2>
 
 <p>As I mentioned before, hosting Rails applications became very simple with Passenger. As simple as creating a new virtual host. Create a new configuration files, for example <code>railsapp.example.org.conf</code> in <code>/etc/nginx/conf.d/</code>, add these lines:
-{% codeblock %}
-server {</p>
-
-<pre><code>listen 80;
-server_name railsapp.example.org;
-passenger_enabled on;
-passenger_use_global_queue on;
-root /path/to/railsapp/public;
-</code></pre>
-
-<p>}
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>server {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>listen 80;
+</span><span class='line'>server_name railsapp.example.org;
+</span><span class='line'>passenger_enabled on;
+</span><span class='line'>passenger_use_global_queue on;
+</span><span class='line'>root /path/to/railsapp/public;
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
 Start nginx to reload new configurations.
-{% codeblock %}</p>
-
-<h1>/etc/init.d/nginx start</h1>
-
-<p>{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>/etc/init.d/nginx start&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
 For detailed guides see <a href="http://www.modrails.com/documentation/">Passenger documentation</a>.</p>
 ]]></content>
   </entry>

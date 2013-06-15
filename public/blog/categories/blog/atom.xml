@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blog | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-15T09:16:46+07:00</updated>
+  <updated>2013-06-15T09:37:47+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -38,31 +38,46 @@
 
 <p>Add Unicorn to the <code>Gemfile</code> outside of the development group:</p>
 
-<p>{% codeblock Gemfile lang:ruby %}
-source &ldquo;<a href="http://rubygems.org">http://rubygems.org</a>&rdquo;</p>
-
-<p>group :development do
-  # all default gems
-end</p>
-
-<p>gem &lsquo;sinatra&rsquo;, &lsquo;~> 1.4.2&rsquo;
-gem &lsquo;unicorn&rsquo;</p>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Gemfile </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;http://rubygems.org&quot;</span><span class="o">&gt;</span><span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">rubygems</span><span class="o">.</span><span class="n">org</span><span class="o">&lt;</span><span class="sr">/a&gt;&amp;rdquo;&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+</span><span class='line'>  <span class="c1"># all default gems</span>
+</span><span class='line'><span class="k">end</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;gem &amp;lsquo;sinatra&amp;rsquo;, &amp;lsquo;~&gt; 1.4.2&amp;rsquo;</span>
+</span><span class='line'><span class="sr">gem &amp;lsquo;unicorn&amp;rsquo;&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Add a <code>unicorn.rb</code> file in the root directory of your application:</p>
 
-<p>{% codeblock unicorn.rb lang:ruby %}
-worker_processes 4
-timeout 30
-preload_app true
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>unicorn.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">worker_processes</span> <span class="mi">4</span>
+</span><span class='line'><span class="n">timeout</span> <span class="mi">30</span>
+</span><span class='line'><span class="n">preload_app</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Add a <code>Procfile</code> file in the root directory of your application:</p>
 
-<p>{% codeblock Procfile lang:ruby %}
-web: bundle exec unicorn -p $PORT -c ./unicorn.rb
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Procfile </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">web</span><span class="p">:</span> <span class="n">bundle</span> <span class="nb">exec</span> <span class="n">unicorn</span> <span class="o">-</span><span class="nb">p</span> <span class="vg">$PORT</span> <span class="o">-</span><span class="n">c</span> <span class="o">.</span><span class="n">/unicorn</span><span class="o">.</span><span class="n">rb</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>That&rsquo;s it. You can test your website performance score using <a href="https://developers.google.com/speed/pagespeed/insights#">Google PageSpeed</a> and see suggestion summary.</p>
 ]]></content>
@@ -75,7 +90,7 @@ web: bundle exec unicorn -p $PORT -c ./unicorn.rb
     <id>http://reza.re/blog/2013/new-blog</id>
     <content type="html"><![CDATA[<p>New blog!</p>
 
-<p>{% img <a href="https://dl.dropboxusercontent.com/u/146649182/reza.re/newblog.jpg">https://dl.dropboxusercontent.com/u/146649182/reza.re/newblog.jpg</a> %}</p>
+<p><img class="<a" src="href="https://dl.dropboxusercontent.com/u/146649182/reza.re/newblog.jpg">https://dl.dropboxusercontent.com/u/146649182/reza.re/newblog.jpg</a>"></p>
 ]]></content>
   </entry>
   

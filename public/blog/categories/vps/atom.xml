@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vps | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/vps/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-15T05:59:51+07:00</updated>
+  <updated>2013-06-15T09:16:46+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -25,7 +25,7 @@
 <p>I will use <a href="http://server.example.org/">server.example.org</a> as my VPS hostname. I will not install DNS server to save some physical memory on VPS. On the DNS registrar management create address record or <code>A</code> record for server and point it to the VPS public ip address. Access VPS via SSH or <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">putty</a> if using Windows.</p>
 
 <p>{% codeblock %}
-[reza@local ~]$ ssh <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#114;&#x6f;&#x6f;&#x74;&#x40;&#x73;&#x65;&#114;&#x76;&#x65;&#x72;&#46;&#x65;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x6f;&#114;&#103;">&#114;&#111;&#111;&#x74;&#x40;&#x73;&#101;&#114;&#x76;&#x65;&#x72;&#46;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#101;&#x2e;&#x6f;&#114;&#x67;</a>
+[reza@local ~]$ ssh <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#114;&#111;&#111;&#116;&#64;&#115;&#x65;&#114;&#118;&#x65;&#114;&#46;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#46;&#111;&#114;&#x67;">&#x72;&#x6f;&#111;&#x74;&#x40;&#x73;&#x65;&#114;&#x76;&#x65;&#114;&#x2e;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x6f;&#x72;&#103;</a>
 {% endcodeblock %}</p>
 
 <p>As usual, run update after OS installation:</p>

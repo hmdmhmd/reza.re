@@ -4,7 +4,7 @@
   <title><![CDATA[Reza Jatnika]]></title>
   <link href="http://reza.re/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-15T10:34:38+07:00</updated>
+  <updated>2013-06-16T00:38:13+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -199,14 +199,6 @@
 <h2>DNS and CDN Management</h2>
 
 <p>CloudFlare is more than just a DNS, their service includes a CDN, page acceleration, security checking, DDOS protection, and more. However, you can switch all that off and just use their DNS. They delivered marginally the best performance. In terms of pricing, if you don’t need SSL, it’s free; if you do need SSL, then your first site is $240 per year, subsequent sites $60 per year.</p>
-
-<p>My example sites:</p>
-
-<ul>
-<li><a href="http://reza.re">reza.re</a> &ndash; Cloudflare + CDN</li>
-<li><a href="http://direct.reza.re">direct.reza.re</a> &ndash; Cloudflare</li>
-</ul>
-
 
 <h2>Heroku and Sinatra</h2>
 

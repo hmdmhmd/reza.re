@@ -12,11 +12,6 @@ This is how I improving octopress website based, it's covers Cloudflare DNS/CDN 
 
 CloudFlare is more than just a DNS, their service includes a CDN, page acceleration, security checking, DDOS protection, and more. However, you can switch all that off and just use their DNS. They delivered marginally the best performance. In terms of pricing, if you don’t need SSL, it’s free; if you do need SSL, then your first site is $240 per year, subsequent sites $60 per year.
 
-My example sites:
-
- * [reza.re](http://reza.re) - Cloudflare + CDN
- * [direct.reza.re](http://direct.reza.re) - Cloudflare
-
 ## Heroku and Sinatra ##
  The default configuration for Octopress and Heroku is to use Sinatra, which in turn means that Heroku will serve your traffic using Webrick. The result is one Heroku instance running one web server. If you use Unicorn, you can get multiple instances running within it; in the configuration described below, this results in four times the capacity.
 

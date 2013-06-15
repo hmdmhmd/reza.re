@@ -4,7 +4,7 @@
   <title><![CDATA[Category: centos | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/centos/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-15T10:34:38+07:00</updated>
+  <updated>2013-06-16T00:38:14+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -24,45 +24,45 @@
 
 <p>I will use <a href="http://server.example.org/">server.example.org</a> as my VPS hostname. I will not install DNS server to save some physical memory on VPS. On the DNS registrar management create address record or <code>A</code> record for server and point it to the VPS public ip address. Access VPS via SSH or <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">putty</a> if using Windows.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[reza@local ~]$ ssh &lt;a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#x72;&#x6f;&#x6f;&#116;&#x40;&#x73;&#x65;&#x72;&#x76;&#101;&#x72;&#46;&#x65;&#120;&#x61;&#109;&#112;&#108;&#x65;&#46;&#x6f;&#114;&#x67;">&#114;&#x6f;&#x6f;&#x74;&#64;&#115;&#101;&#114;&#x76;&#x65;&#114;&#x2e;&#x65;&#x78;&#97;&#109;&#112;&#108;&#x65;&#46;&#111;&#x72;&#103;&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[reza@local ~]$ ssh <a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#x72;&#111;&#x6f;&#x74;&#x40;&#x73;&#x65;&#x72;&#118;&#x65;&#114;&#x2e;&#101;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#46;&#111;&#x72;&#103;">&#114;&#x6f;&#x6f;&#116;&#64;&#115;&#x65;&#x72;&#x76;&#x65;&#114;&#46;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#111;&#114;&#103;</a>
+{% endcodeblock %}</p>
 
 <p>As usual, run update after OS installation:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# yum -y update</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# yum -y update
+{% endcodeblock %}</p>
 
 <p>By default, the VPS comes with Apache HTTP web server, but I will use <a href="http://nginx.org/">nginx</a> for my web server. Removing Apache web server:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# yum remove httpd</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# yum remove httpd
+{% endcodeblock %}</p>
 
 <p>To add nginx yum repository, create a file named <code>/etc/yum.repos.d/nginx.repo</code> and paste the configuration below:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[nginx]
-</span><span class='line'>name=nginx
-</span><span class='line'>baseurl=&lt;a href="http://nginx.org/packages/centos/$releasever/$basearch/">http://nginx.org/packages/centos/$releasever/$basearch/&lt;/a>
-</span><span class='line'>gpgcheck=0
-</span><span class='line'>enabled=1</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[nginx]
+name=nginx
+baseurl=<a href="http://nginx.org/packages/centos/$releasever/$basearch/">http://nginx.org/packages/centos/$releasever/$basearch/</a>
+gpgcheck=0
+enabled=1
+{% endcodeblock %}</p>
 
 <p>Install nginx using yum:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# yum update
-</span><span class='line'>[root@server ~]# yum install nginx</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# yum update
+[root@server ~]# yum install nginx
+{% endcodeblock %}</p>
 
 <p>Start nginx daemon and add link to system startup:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# /etc/init.d/nginx start
-</span><span class='line'>[root@server ~]# chkconfig &mdash;levels 235 nginx on</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# /etc/init.d/nginx start
+[root@server ~]# chkconfig &mdash;levels 235 nginx on
+{% endcodeblock %}</p>
 
 <p>See <a href="http://server.example.org/">server.example.org</a> to check nginx installation.</p>
 
@@ -70,78 +70,72 @@
 
 <p>Install development tools for RubyGems dependencies:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# yum groupinstall &lsquo;Development Tools&rsquo;
-</span><span class='line'>[root@server ~]# yum install zlib zlib-devel sqlite-devel libffi-devel openssl-devel readline-devel</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# yum groupinstall &lsquo;Development Tools&rsquo;
+[root@server ~]# yum install zlib zlib-devel sqlite-devel libffi-devel openssl-devel readline-devel
+{% endcodeblock %}</p>
 
 <p>Install git for source code management:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# yum install git-core</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# yum install git-core
+{% endcodeblock %}</p>
 
 <h2>Ruby with RVM</h2>
 
 <p>Before install Ruby Version Manager or <a href="https://rvm.io/rvm/">RVM</a> via <code>curl</code> command, we need to install <code>libyaml-devel</code> to prevent psych error. Add new yum repository from <a href="http://repoforge.org/use/">repoforge.org</a>, then install <code>libyaml-devel</code>:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# yum install libyaml-devel</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# yum install libyaml-devel
+{% endcodeblock %}</p>
 
 <p>Next, we can install RVM without any trouble.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# curl -L &lt;a href="https://get.rvm.io">https://get.rvm.io&lt;/a> | bash -s stable
-</span><span class='line'>[root@server ~]# bash</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# curl -L <a href="https://get.rvm.io">https://get.rvm.io</a> | bash -s stable
+[root@server ~]# bash
+{% endcodeblock %}</p>
 
 <p>Using RVM we can install many Ruby version, see <a href="https://rvm.io/rvm/install/">RVM docs</a> for detailed instructions. For now, I just need Ruby 1.9.3, to install this version:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# rvm install 1.9.3
-</span><span class='line'>[root@server ~]# rvm use 1.9.3 &mdash;default</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# rvm install 1.9.3
+[root@server ~]# rvm use 1.9.3 &mdash;default
+{% endcodeblock %}</p>
 
 <p>To check Ruby and RubyGems installation:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# ruby -v
-</span><span class='line'>ruby 1.9.3p194 (2012-04-20 revision 35410) [i686-linux]
-</span><span class='line'>[root@server ~]# gem -v
-</span><span class='line'>1.8.24</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# ruby -v
+ruby 1.9.3p194 (2012-04-20 revision 35410) [i686-linux]
+[root@server ~]# gem -v
+1.8.24
+{% endcodeblock %}</p>
 
 <p>With Ruby and RubyGems loaded, you can install all of <a href="http://rubyonrails.org/">Rails</a> and its dependencies (approximately 29 gems) through the command line:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# gem install rails</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# gem install rails
+{% endcodeblock %}</p>
 
 <h2>Crontab</h2>
 
 <p>I will use <a href="http://crontab.org/">crontab</a> for automatic update once a week. Create a shell script <code>/etc/cron.weekly/yum.sh</code> and add script below:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>yum.sh </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;YUM<span class="o">=</span>/usr/bin/yum
-</span><span class='line'><span class="nv">$YUM</span> -y -R 120 -d 0 -e 0 update yum
-</span><span class='line'><span class="nv">$YUM</span> -y -R 10 -e 0 -d 0 update
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock yum.sh lang:bash %}</p>
+
+<h1>!/bin/bash</h1>
+
+<p>YUM=/usr/bin/yum
+$YUM -y -R 120 -d 0 -e 0 update yum
+$YUM -y -R 10 -e 0 -d 0 update
+{% endcodeblock %}</p>
 
 <p>Make sure you setup executable permission:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[root@server ~]# chmod +x /etc/cron.weekly/yum.sh</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock %}
+[root@server ~]# chmod +x /etc/cron.weekly/yum.sh
+{% endcodeblock %}</p>
 
 <p>Using crontab, we can schedule jobs (commands or shell scripts) to run periodically at certain times or dates, see <a href="http://en.wikipedia.org/wiki/Cron">wiki page</a> for further reading.</p>
 ]]></content>

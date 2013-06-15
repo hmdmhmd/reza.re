@@ -4,7 +4,7 @@
   <title><![CDATA[Category: nginx | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/nginx/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-15T10:26:49+07:00</updated>
+  <updated>2013-06-15T10:34:38+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -141,7 +141,7 @@ For detailed guides see <a href="http://www.modrails.com/documentation/">Passeng
 <p>I will use <a href="http://server.example.org/">server.example.org</a> as my VPS hostname. I will not install DNS server to save some physical memory on VPS. On the DNS registrar management create address record or <code>A</code> record for server and point it to the VPS public ip address. Access VPS via SSH or <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">putty</a> if using Windows.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[reza@local ~]$ ssh &lt;a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#114;&#111;&#111;&#116;&#64;&#115;&#101;&#114;&#x76;&#x65;&#114;&#46;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#x6f;&#114;&#x67;">&#114;&#111;&#111;&#x74;&#64;&#115;&#101;&#114;&#x76;&#x65;&#114;&#x2e;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#111;&#114;&#x67;&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[reza@local ~]$ ssh &lt;a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#114;&#x6f;&#x6f;&#x74;&#x40;&#115;&#x65;&#x72;&#118;&#101;&#x72;&#46;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#111;&#x72;&#103;">&#114;&#x6f;&#111;&#116;&#x40;&#x73;&#x65;&#x72;&#x76;&#101;&#114;&#46;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#x2e;&#111;&#114;&#x67;&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>As usual, run update after OS installation:</p>
 

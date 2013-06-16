@@ -3,7 +3,7 @@ layout: post
 title: "Initial Virtual Private Server Setup"
 date: 2012-10-11 04:21:34 +0700
 description: Initial setup and configuration Centos 6.3 virtual private server
-categories: [vps, centos, nginx]
+categories: [vps, nginx]
 ---
 
 This is initial setup for my CentOS 6.3 virtual private server. I want to use it for deploying Rails application and hosting my website. This article only cover basic installation for web server, Ruby with RVM, Rails, and crontab.

@@ -44,3 +44,9 @@
     } /* // li */
   } /* // ul */
 } /* // .navi */
+
+body > footer p:last-child {
+  text-align: center;
+  font-size: 0.9em;
+  margin-bottom: 0px;
+}

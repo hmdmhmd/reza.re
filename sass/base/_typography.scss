@@ -1,8 +1,8 @@
 $blockquote: $type-border !default;
 
 // Fonts
-$sans: "Karla","Helvetica Neue", Arial, sans-serif !default;
-$serif: "Sorts Mill Goudy", Georgia, Times, "Times New Roman", serif !default;
+$sans: "Cabin","Helvetica Neue", Arial, sans-serif !default;
+$serif: "Vollkorn", Georgia, Times, "Times New Roman", serif !default;
 $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
 $heading-font-family: "Fjalla One", "Georgia", "Helvetica Neue", Arial, sans-serif !default;
 $header-title-font-family: $heading-font-family !default;
@@ -17,25 +17,25 @@ $header-subtitle-font-family: $serif !default;
 
 body > header h1 {
   font-size: 2.2em;
-  @extend .sans;
+  @extend .serif;
   font-family: $header-title-font-family;
   font-weight: normal;
   line-height: 1.2em;
   margin-bottom: 0.6667em;
 }
 body > header h2 {
-  font-family: $sans;
+  font-family: $serif;
 }
 
 body {
   line-height: 1.5em;
   color: $text-color;
-  @extend .sans;
+  @extend .serif;
 }
 h1 {
   font-size: 2.2em;
   line-height: 1.2em;
-  @extend .sans;
+  @extend .serif;
 }
 
 @media only screen and (min-width: 992px) {
@@ -44,7 +44,7 @@ h1 {
 }
 
 #{headings()}{
-  @extend .sans;
+  @extend .serif;
   text-rendering: optimizelegibility;
   margin-bottom: 1em;
   font-weight: bold;
@@ -67,7 +67,7 @@ h6, section h5, section section h4, section section section h3 {
 
 p, article blockquote, ul, ol {
   margin-bottom: 1.5em;
-  @extend .sans;
+  @extend .serif;
   }
 
 ul { list-style-type: disc;
@@ -172,7 +172,7 @@ article blockquote {
 }
 
 article {
-  @extend .sans;
+  @extend .serif;
   font-size: 1em;
   line-height: 1.7em;
   text-align: left;

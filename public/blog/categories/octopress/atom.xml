@@ -4,14 +4,32 @@
   <title><![CDATA[Category: octopress | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-17T02:33:21+07:00</updated>
+  <updated>2013-06-17T03:46:49+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
-    <email><![CDATA[reza@reza.re]]></email>
+    <email><![CDATA[rezajatnika@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress Theme]]></title>
+    <link href="http://reza.re/blog/2013/octopress-theme/"/>
+    <updated>2013-06-17T03:41:00+07:00</updated>
+    <id>http://reza.re/blog/2013/octopress-theme</id>
+    <content type="html"><![CDATA[<p>My website theme is available on <a href="https://github.com/rezajatnika/greyjoy">GitHub</a>.</p>
+
+<p><code>
+$ cd .themes
+$ git clone git://github.com/rezajatnika/greyjoy.git
+$ rake install[greyjoy]
+$ rake generate
+</code></p>
+
+<p>Still need to tidy up the code (sass and layout).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Deploying Octopress/Jekyll on AppFog]]></title>

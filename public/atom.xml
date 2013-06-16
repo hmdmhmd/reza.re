@@ -4,14 +4,35 @@
   <title><![CDATA[Reza Jatnika]]></title>
   <link href="http://reza.re/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-17T02:33:21+07:00</updated>
+  <updated>2013-06-17T03:46:49+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
-    <email><![CDATA[reza@reza.re]]></email>
+    <email><![CDATA[rezajatnika@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress Theme]]></title>
+    <link href="http://reza.re/blog/2013/octopress-theme/"/>
+    <updated>2013-06-17T03:41:00+07:00</updated>
+    <id>http://reza.re/blog/2013/octopress-theme</id>
+    <content type="html"><![CDATA[<p>My website theme is available on <a href="https://github.com/rezajatnika/greyjoy">GitHub</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd .themes
+</span><span class='line'>$ git clone git://github.com/rezajatnika/greyjoy.git
+</span><span class='line'>$ rake install[greyjoy]
+</span><span class='line'>$ rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Still need to tidy up the code (sass and layout).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Tywin Lannister Quote]]></title>

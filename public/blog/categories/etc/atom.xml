@@ -4,7 +4,7 @@
   <title><![CDATA[Category: etc | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/etc/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-17T01:53:17+07:00</updated>
+  <updated>2013-06-17T02:33:21+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -20,9 +20,7 @@
     <id>http://reza.re/blog/2013/tywin-lannister-quote</id>
     <content type="html"><![CDATA[<p>A nice quote by Tywin Lannister taken from <em>A Storm of Sword</em> book.</p>
 
-<p>{% blockquote Tywin Lannister, A Storm of Swords %}
-The greatest fools are ofttimes more clever then the men who laugh at them.
-{% endblockquote %}</p>
+<p><blockquote><p>The greatest fools are ofttimes more clever then the men who laugh at them.</p><footer><strong>Tywin Lannister</strong> <cite>A Storm of Swords</cite></footer></blockquote></p>
 ]]></content>
   </entry>
   

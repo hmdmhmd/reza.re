@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-17T01:53:17+07:00</updated>
+  <updated>2013-06-17T02:33:21+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -20,43 +20,41 @@
     <id>http://reza.re/blog/2012/single-user-rvm</id>
     <content type="html"><![CDATA[<p>Using RVM we can manage multiple Ruby version along with it&rsquo;s gemsets. Installing RVM for single user is very easy, especially on Ubuntu. Install <code>build-essential</code> and <code>git-core</code> package.</p>
 
-<p>{% codeblock %}
-$ sudo apt-get install build-essential git git-core curl
-$ bash
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo apt-get install build-essential git git-core curl
+</span><span class='line'>$ bash</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Next, install RVM using <code>curl</code> from the terminal.</p>
 
-<p>{% codeblock %}
-$ curl -L <a href="https://get.rvm.io">https://get.rvm.io</a> | bash -s stable
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ curl -L &lt;a href="https://get.rvm.io">https://get.rvm.io&lt;/a> | bash -s stable</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Add these following line into <code>bashrc</code> file.</p>
 
-<p>{% codeblock %}
-$ echo &lsquo;[[ -s &ldquo;$HOME/.rvm/scripts/rvm&rdquo; ]] &amp;&amp; source &ldquo;$HOME/.rvm/scripts/rvm&rdquo;&rsquo; >> ~/.bashrc
-$ . .bashrc
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ echo &lsquo;[[ -s &ldquo;$HOME/.rvm/scripts/rvm&rdquo; ]] &amp;&amp; source &ldquo;$HOME/.rvm/scripts/rvm&rdquo;&rsquo; >> ~/.bashrc
+</span><span class='line'>$ . .bashrc</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>To test if our installation of RVM was succesfull, we can run a command and check its output.</p>
 
-<p>{% codeblock %}
-$ type rvm | head -1
-rvm is a function
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ type rvm | head -1
+</span><span class='line'>rvm is a function</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>If the output of the above command is equivalent to rvm is a function, then we now have a working RVM installation. To install additional RVM dependencies, run the following command:</p>
 
-<p>{% codeblock %}
-$ rvm requirements
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm requirements</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Now we have fully working RVM with dependencies. Now we can install Ruby using RVM command.</p>
 
-<p>{% codeblock %}
-$ rvm install 1.9.3
-$ rvm use 1.9.3 &mdash;default
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm install 1.9.3
+</span><span class='line'>$ rvm use 1.9.3 &mdash;default</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   

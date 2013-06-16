@@ -24,7 +24,7 @@ body {
 		h1 {
 			a, a:visited, a:hover {
 				color: #8C8C8C;
-				font-family: $heading-font-family;
+				font-family: $sans;
 			}
 		}
 	}
@@ -46,8 +46,8 @@ body {
 		}
 
 		a {
-			font-family: $heading-font-family;
-			font-size: 0.9em;
+			font-family: $sans;
+			font-size: 1.2em;
 			padding-top: 0.3em;
 			line-height: 1.5em;
 		}
@@ -74,12 +74,13 @@ body {
 	> footer {
 		background: url("/images/noise.png?1355016346") repeat scroll left top #fafafa;
 		text-shadow: none;
-		color: #AAAAAA;
+		color: #8C8C8C;
 	  	padding-left: 0;
 	  	padding-right: 0;
 		border-top: 0px;
 		padding-left: 0px;
 		padding-right: 0px;
+		font-size: 1em;
 	}
 
 	#content {
@@ -116,7 +117,7 @@ article {
 
 	header {
 		h1.entry-title {
-			font-family: $heading-font-family;
+			font-family: $sans;
 			font-weight: 400;
 		}
 	}
@@ -147,7 +148,7 @@ article {
 
 		h1 {
 			a {
-				font-family: $heading-font-family;
+				font-family: $sans;
 				font-weight: 400;
 			}
 
@@ -159,7 +160,7 @@ article {
 
 	.hentry {
 		h1.entry-title {
-			font-family: $heading-font-family;
+			font-family: $sans;
 			font-weight: 400;
 			font-size: 2.2em;
 		}

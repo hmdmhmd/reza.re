@@ -114,16 +114,16 @@ body > div > div {
   border-right: 1px solid #e0e0e0;
 }
 
-.heading, body > header h1, h1, h2, h3, h4, h5, h6 {
-  font-family: "Fjalla One", "Georgia", "Helvetica Neue", Arial, sans-serif;
+.heading {
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
 }
 
-.sans, body > header h2, article header p.meta, article > footer, #content .blog-index footer, html .gist .gist-file .gist-meta, #blog-archives a.category, #blog-archives time, aside.sidebar section, body > footer {
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+.sans, body > header h1, body, h1, h2, h3, h4, h5, h6, p, article blockquote, ul, ol, article, body > header h2, article header p.meta, article > footer, #content .blog-index footer, html .gist .gist-file .gist-meta, #blog-archives a.category, #blog-archives time, aside.sidebar section, body > footer {
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
 }
 
-.serif, body, #content .blog-index a[rel=full-article] {
-  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
+.serif, strong, dfn, article blockquote cite, #content .blog-index a[rel=full-article] {
+  font-family: "Sorts Mill Goudy", Georgia, Times, "Times New Roman", serif;
 }
 
 .mono, pre, code, tt, p code, li code {
@@ -139,7 +139,7 @@ body > header h1 {
 }
 
 body > header h2 {
-  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
@@ -348,6 +348,12 @@ article blockquote cite:before {
   white-space: -o-pre-wrap;
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+article {
+  font-size: 1.2em;
+  line-height: 1.7em;
+  text-align: left;
 }
 
 .group, body > header, body > nav, body > footer, body #content > article, body #content > div > article, body #content > div > section, body div.pagination, aside.sidebar, #main, #content, .sidebar {
@@ -670,7 +676,7 @@ body > nav form {
 body > nav form .search {
   padding: .3em .5em 0;
   font-size: .85em;
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.1em;
   width: 95%;
   -webkit-border-radius: 0.5em;
@@ -758,7 +764,7 @@ body > nav ul {
   }
   body > nav a {
     color: #6b6b6b;
-    font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
     text-shadow: #ebebeb 0 1px;
     float: left;
     text-decoration: none;
@@ -1537,7 +1543,7 @@ figure.code .highlight {
   -moz-border-radius-topright: 5px;
   -webkit-border-top-right-radius: 5px;
   border-top-right-radius: 5px;
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
   background: #aaaaaa url('/images/code_bg.png?1371317237') top repeat-x;
   border: 1px solid #565656;
   border-top-color: #cbcbcb;
@@ -2197,7 +2203,7 @@ figcaption {
 
 .flickr-thumbnail h1 {
   font-size: small;
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
   text-align: center;
 }
 
@@ -2259,7 +2265,7 @@ figure a img, figure a video, figure a .flash-video {
 /* customization for fancybox */
 /* fonts  and layout */
 .fancybox-title, .fancybox-title h1, .fancybox-title .description {
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif !important;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif !important;
   text-align: center;
 }
 
@@ -2318,7 +2324,7 @@ html {
 }
 
 body {
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif !important;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif !important;
   font-size: 1em;
   max-width: 850px;
   padding-left: 0.5em;
@@ -2332,7 +2338,7 @@ body > header {
 }
 body > header h1 a, body > header h1 a:visited, body > header h1 a:hover {
   color: #8C8C8C;
-  font-family: "Fjalla One", "Georgia", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
 }
 body > nav {
   background: url("/images/noise.png?1355016346") repeat scroll left top #fafafa;
@@ -2350,8 +2356,8 @@ body > nav form .search {
   padding-right: 0.5em;
 }
 body > nav a {
-  font-family: "Fjalla One", "Georgia", "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.9em;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.2em;
   padding-top: 0.3em;
   line-height: 1.5em;
 }
@@ -2372,12 +2378,13 @@ body > div > div {
 body > footer {
   background: url("/images/noise.png?1355016346") repeat scroll left top #fafafa;
   text-shadow: none;
-  color: #AAAAAA;
+  color: #8C8C8C;
   padding-left: 0;
   padding-right: 0;
   border-top: 0px;
   padding-left: 0px;
   padding-right: 0px;
+  font-size: 1em;
 }
 body #content > article {
   padding-left: 0px;
@@ -2401,7 +2408,7 @@ article a, article a:visited {
   color: #1863A1;
 }
 article header h1.entry-title {
-  font-family: "Fjalla One", "Georgia", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
 }
 
@@ -2424,14 +2431,14 @@ article header h1.entry-title {
   padding-right: 0;
 }
 #content .blog-index h1 a {
-  font-family: "Fjalla One", "Georgia", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
 }
 #content .blog-index h1 a:hover {
   text-decoration: none;
 }
 #content .hentry h1.entry-title {
-  font-family: "Fjalla One", "Georgia", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
   font-size: 2.2em;
 }

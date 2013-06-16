@@ -5,13 +5,14 @@ $white: #FFFFFF;
 
 html {
     background: url("/images/noise.png?1355016346") repeat scroll left top #fafafa;
+    border-top: 8px solid #000;
 }
 
 
 body {
 	font-family: $sans !important;
 	font-size: 1em;
-	max-width: 850px;
+	max-width: 750px;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 
@@ -31,7 +32,6 @@ body {
 
 	> nav {
 		background: url("/images/noise.png?1355016346") repeat scroll left top #fafafa;
-		border-bottom: 1px solid #F2F2F2;
 		padding-left: 0px;
 		padding-right: 0px;
 

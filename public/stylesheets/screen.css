@@ -61,6 +61,38 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* To use the light Solarized highlighting theme uncomment the following line */
 /* If you want to tweak the Solarized colors you can do that here */
 /* Non highlighted code colors */
+.navi {
+  text-align: center;
+  /* // ul */
+}
+.navi ul {
+  padding: 0;
+  list-style: none;
+  /* // li */
+}
+.navi ul li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0;
+  padding: 0 1em;
+  /* // a */
+}
+.navi ul li a {
+  color: #000;
+  text-decoration: none;
+}
+.navi ul li a:hover {
+  color: #8C8C8C;
+}
+.navi ul li a:active {
+  color: #8C8C8C;
+}
+
+/* // .navi */
 /* non highlighted code colors */
 /* Navigation */
 /* Sidebar colors */
@@ -351,7 +383,7 @@ article blockquote cite:before {
 }
 
 article {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.7em;
   text-align: left;
 }
@@ -661,8 +693,6 @@ body > nav {
   background: url('/images/noise.png?1371317237'), -moz-linear-gradient(#e0e0e0, #cccccc, #b0b0b0);
   background: url('/images/noise.png?1371317237'), -o-linear-gradient(#e0e0e0, #cccccc, #b0b0b0);
   background: url('/images/noise.png?1371317237'), linear-gradient(#e0e0e0, #cccccc, #b0b0b0);
-  border-top: 1px solid #f2f2f2;
-  border-bottom: 1px solid #8c8c8c;
   padding-top: .35em;
   padding-bottom: .35em;
 }
@@ -729,7 +759,7 @@ body > nav ul {
     border: 0;
     overflow: hidden;
     *zoom: 1;
-    float: left;
+    float: none;
     display: block;
     padding-top: .15em;
   }
@@ -771,6 +801,7 @@ body > nav ul {
     font-size: 1.1em;
     padding: .1em 0;
     line-height: 1.5em;
+    text-align: center;
   }
   body > nav a:visited {
     color: #6b6b6b;
@@ -999,7 +1030,7 @@ article .flash-video > div iframe, article .flash-video > div object, article .f
   height: 100%;
 }
 article > footer {
-  padding-bottom: 2.5em;
+  padding-bottom: 1em;
   margin-top: 2em;
 }
 article > footer p.meta {
@@ -2321,12 +2352,13 @@ figure a img, figure a video, figure a .flash-video {
 */
 html {
   background: url("/images/noise.png?1355016346") repeat scroll left top #fafafa;
+  border-top: 8px solid #000;
 }
 
 body {
   font-family: "Karla", "Helvetica Neue", Arial, sans-serif !important;
   font-size: 1em;
-  max-width: 850px;
+  max-width: 750px;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
@@ -2342,7 +2374,6 @@ body > header h1 a, body > header h1 a:visited, body > header h1 a:hover {
 }
 body > nav {
   background: url("/images/noise.png?1355016346") repeat scroll left top #fafafa;
-  border-bottom: 1px solid #F2F2F2;
   padding-left: 0px;
   padding-right: 0px;
 }

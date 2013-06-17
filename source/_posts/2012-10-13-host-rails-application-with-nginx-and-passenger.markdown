@@ -7,6 +7,8 @@ categories: [nginx]
 ---
 
 Hosting and deploying Ruby on Rails application became very easy with [Phusion Passenger](http://www.modrails.com/) or `mod_rails`. Phusion Passenger is an nginx module, which makes deploying Ruby and Ruby on Rails applications on nginx a breeze. This guide describes the required process for deploying Ruby on Rails with Passenger and the nginx web server on CentOS 6. Assume we have installed nginx and Ruby on Rails.
+<!-- more -->
+
 
 ## Install Nginx with Phusion Passenger
 First, install the Phusion Passenger gem by running:

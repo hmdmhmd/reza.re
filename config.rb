@@ -15,4 +15,4 @@ images_dir = "source/images"
 fonts_dir = "source/fonts"
 
 line_comments = false
-output_style = :expanded
+output_style = :compressed

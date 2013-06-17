@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-17T04:22:46+07:00</updated>
+  <updated>2013-06-17T11:13:58+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -37,6 +37,9 @@ $ rake generate
     <updated>2013-06-15T04:55:00+07:00</updated>
     <id>http://reza.re/blog/2013/deploying-octopress-slash-jekyll-on-appfog</id>
     <content type="html"><![CDATA[<p>Deploying Jekyll or Octopress based website to Heroku is really easy and simple, because Heroku use git for source code management. Heroku will create automatically our server based on our type of application, but we can&rsquo;t choose server location. With AppFog we can choose nearest server from our location. I live in Indonesia, so the nearest infrastucture is AWS Singapore. We can have very little response time compared to Heroku.</p>
+
+<!-- more -->
+
 
 <h2>Preparation</h2>
 
@@ -220,6 +223,9 @@ $ af update
     <updated>2013-06-13T12:08:00+07:00</updated>
     <id>http://reza.re/blog/2013/improving-octopress-performance</id>
     <content type="html"><![CDATA[<p>This is how I improving octopress website based, it&rsquo;s covers Cloudflare DNS/CDN management and configuration of heroku and sinatra.</p>
+
+<!-- more -->
+
 
 <h2>DNS and CDN Management</h2>
 

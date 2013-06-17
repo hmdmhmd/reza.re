@@ -6,7 +6,7 @@ comments: true
 categories: ruby
 ---
 
-Using RVM we can manage multiple Ruby version along with it's gemsets. Installing RVM for single user is very easy, especially on Ubuntu. Install `build-essential` and `git-core` package.
+Using RVM we can manage multiple Ruby version along with it's gemsets. Installing RVM for single user is very easy, especially on Ubuntu. <!-- more --> Install `build-essential` and `git-core` package.
 
 {% codeblock %}
 $ sudo apt-get install build-essential git git-core curl

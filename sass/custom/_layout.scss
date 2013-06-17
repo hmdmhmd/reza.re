@@ -20,9 +20,14 @@
 //$sidebar-pad-wide: 20px;
 //$sidebar-width-wide: 300px;
 
+$sans: "Cabin","Helvetica Neue", Arial, sans-serif !default;
+
 .navi {
   text-align: center;
+
   ul {
+    font-family: $sans;
+    font-size: 1.5em;
     padding: 0;
     list-style: none;
 
@@ -35,10 +40,10 @@
         color: #000;
         text-decoration: none;
         &:hover {
-          color: #8C8C8C;
+          color: #0181eb;
         }
         &:active {
-          color: #8C8C8C;
+          color: #0181eb;
         }
       } /* // a */
     } /* // li */

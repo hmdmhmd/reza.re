@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-17T04:22:46+07:00</updated>
+  <updated>2013-06-17T11:13:58+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -18,7 +18,7 @@
     <link href="http://reza.re/blog/2012/single-user-rvm/"/>
     <updated>2012-11-05T00:32:00+07:00</updated>
     <id>http://reza.re/blog/2012/single-user-rvm</id>
-    <content type="html"><![CDATA[<p>Using RVM we can manage multiple Ruby version along with it&rsquo;s gemsets. Installing RVM for single user is very easy, especially on Ubuntu. Install <code>build-essential</code> and <code>git-core</code> package.</p>
+    <content type="html"><![CDATA[<p>Using RVM we can manage multiple Ruby version along with it&rsquo;s gemsets. Installing RVM for single user is very easy, especially on Ubuntu. <!-- more --> Install <code>build-essential</code> and <code>git-core</code> package.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>

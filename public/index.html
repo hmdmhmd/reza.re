@@ -36,6 +36,7 @@ $ rake &hellip;">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href='http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -188,150 +189,12 @@ $ rake &hellip;">
 
   <div class="entry-content"><p>Deploying Jekyll or Octopress based website to Heroku is really easy and simple, because Heroku use git for source code management. Heroku will create automatically our server based on our type of application, but we can&rsquo;t choose server location. With AppFog we can choose nearest server from our location. I live in Indonesia, so the nearest infrastucture is AWS Singapore. We can have very little response time compared to Heroku.</p>
 
-<h2>Preparation</h2>
-
-<p>Deploying to AppFog is not as easy as deploying to Heroku. We need to configure Octopress. Before that, lets install af gem. It&rsquo;s similar to heroku gem.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem install af</span></code></pre></td></tr></table></div></figure>
-
-
-<p>After installing af gem, go to our Octopress directory. Login to AppFog by running the following command:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ af login</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Create an <code>app.rb</code> file to handle <code>SinatraStaticServer</code> class.</p>
-
-<figure class='code'><figcaption><span>app.rb </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;bundler/setup&#39;</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># The project root directory</span>
-</span><span class='line'><span class="vg">$root</span> <span class="o">=</span> <span class="o">::</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">get</span><span class="p">(</span><span class="sr">/.+/</span><span class="p">)</span> <span class="k">do</span>
-</span><span class='line'>    <span class="n">send_sinatra_file</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="p">)</span> <span class="p">{</span><span class="mi">404</span><span class="p">}</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">not_found</span> <span class="k">do</span>
-</span><span class='line'>    <span class="n">send_file</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">),</span> <span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="s1">&#39;404.html&#39;</span><span class="p">),</span> <span class="p">{</span><span class="ss">:status</span> <span class="o">=&gt;</span> <span class="mi">404</span><span class="p">})</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">send_sinatra_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">missing_file_block</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">file_path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">),</span> <span class="s1">&#39;public&#39;</span><span class="p">,</span>  <span class="n">path</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">file_path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">)</span> <span class="k">unless</span> <span class="n">file_path</span> <span class="o">=~</span> <span class="sr">/\.[a-z]+$/i</span>
-</span><span class='line'>    <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="p">?</span> <span class="n">send_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="p">:</span> <span class="n">missing_file_block</span><span class="o">.</span><span class="n">call</span>
-</span><span class='line'>  <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Create <code>.afignore</code>, it&rsquo;s similar to <code>.gitignore</code> in git.</p>
-
-<figure class='code'><figcaption><span>.afignore </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># Local config
-</span><span class='line'>config.ru
-</span><span class='line'>
-</span><span class='line'>.sass-cache/
-</span><span class='line'>.gist-cache/
-</span><span class='line'>.pygments-cache/
-</span><span class='line'>
-</span><span class='line'>.themes/
-</span><span class='line'>
-</span><span class='line'>.gitignore
-</span><span class='line'>.gitattributes</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We include <code>config.ru</code> because we already have <code>app.rb</code> to handle Sinatra.</p>
-
-<h2>Deploying</h2>
-
-<p>We can create new AppFog app by using website or directly from command line.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ af push --runtime ruby193</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Choose Sinatra application not Rack application. Save the configuration file, it&rsquo;s looks like this.</p>
-
-<figure class='code'><figcaption><span>manifest.yml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="nn">---</span>
-</span><span class='line'><span class="l-Scalar-Plain">applications</span><span class="p-Indicator">:</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">.</span><span class="p-Indicator">:</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rezare</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">framework</span><span class="p-Indicator">:</span>
-</span><span class='line'>      <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sinatra</span>
-</span><span class='line'>      <span class="l-Scalar-Plain">info</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">mem</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">128M</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sinatra Application</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">exec</span><span class="p-Indicator">:</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">infra</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ap-aws</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${name}.${target-base}</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">mem</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">512M</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">instances</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To update our application run:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add .
-</span><span class='line'>$ git commit -m "Site updated"
-</span><span class='line'>$ af update</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>Using AppFog for deploying Octopress is slightly different than Heroku, but it&rsquo;s offer better response time. AppFog do not use source code management, but we can use GitHub or bitbucket to store our website code. And one more thing, we can not use custom domain on free plans.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/deploying-octopress-slash-jekyll-on-appfog/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -406,59 +269,12 @@ $ rake &hellip;">
 
   <div class="entry-content"><p>This is how I improving octopress website based, it&rsquo;s covers Cloudflare DNS/CDN management and configuration of heroku and sinatra.</p>
 
-<h2>DNS and CDN Management</h2>
-
-<p>CloudFlare is more than just a DNS, their service includes a CDN, page acceleration, security checking, DDOS protection, and more. However, you can switch all that off and just use their DNS. They delivered marginally the best performance. In terms of pricing, if you don’t need SSL, it’s free; if you do need SSL, then your first site is $240 per year, subsequent sites $60 per year.</p>
-
-<h2>Heroku and Sinatra</h2>
-
-<p> The default configuration for Octopress and Heroku is to use Sinatra, which in turn means that Heroku will serve your traffic using Webrick. The result is one Heroku instance running one web server. If you use Unicorn, you can get multiple instances running within it; in the configuration described below, this results in four times the capacity.</p>
-
-<p>Add Unicorn to the <code>Gemfile</code> outside of the development group:</p>
-
-<figure class='code'><figcaption><span>Gemfile </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="s2">&quot;http://rubygems.org&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
-</span><span class='line'>  <span class="c1"># all default gems</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;sinatra&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.4.2&#39;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;unicorn&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Add a <code>unicorn.rb</code> file in the root directory of your application:</p>
-
-<figure class='code'><figcaption><span>unicorn.rb </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">worker_processes</span> <span class="mi">4</span>
-</span><span class='line'><span class="n">timeout</span> <span class="mi">30</span>
-</span><span class='line'><span class="n">preload_app</span> <span class="kp">true</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Add a <code>Procfile</code> file in the root directory of your application:</p>
-
-<figure class='code'><figcaption><span>Procfile </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">web</span><span class="p">:</span> <span class="n">bundle</span> <span class="nb">exec</span> <span class="n">unicorn</span> <span class="o">-</span><span class="nb">p</span> <span class="vg">$PORT</span> <span class="o">-</span><span class="n">c</span> <span class="o">.</span><span class="n">/unicorn</span><span class="o">.</span><span class="n">rb</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>That&rsquo;s it. You can test your website performance score using <a href="https://developers.google.com/speed/pagespeed/insights#">Google PageSpeed</a> and see suggestion summary.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/improving-octopress-performance/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -536,16 +352,6 @@ $ rake &hellip;">
 
 
 
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 

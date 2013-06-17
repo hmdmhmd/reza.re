@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blog | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-17T04:22:46+07:00</updated>
+  <updated>2013-06-17T11:13:58+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -19,6 +19,9 @@
     <updated>2013-06-13T12:08:00+07:00</updated>
     <id>http://reza.re/blog/2013/improving-octopress-performance</id>
     <content type="html"><![CDATA[<p>This is how I improving octopress website based, it&rsquo;s covers Cloudflare DNS/CDN management and configuration of heroku and sinatra.</p>
+
+<!-- more -->
+
 
 <h2>DNS and CDN Management</h2>
 

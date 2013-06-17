@@ -4,7 +4,7 @@
   <title><![CDATA[Category: nginx | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/nginx/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-17T04:22:46+07:00</updated>
+  <updated>2013-06-17T11:13:58+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -19,6 +19,9 @@
     <updated>2012-10-13T01:18:13+07:00</updated>
     <id>http://reza.re/blog/2012/host-rails-application-with-nginx-and-passenger</id>
     <content type="html"><![CDATA[<p>Hosting and deploying Ruby on Rails application became very easy with <a href="http://www.modrails.com/">Phusion Passenger</a> or <code>mod_rails</code>. Phusion Passenger is an nginx module, which makes deploying Ruby and Ruby on Rails applications on nginx a breeze. This guide describes the required process for deploying Ruby on Rails with Passenger and the nginx web server on CentOS 6. Assume we have installed nginx and Ruby on Rails.</p>
+
+<!-- more -->
+
 
 <h2>Install Nginx with Phusion Passenger</h2>
 
@@ -134,14 +137,14 @@ For detailed guides see <a href="http://www.modrails.com/documentation/">Passeng
     <link href="http://reza.re/blog/2012/initial-vps-setup/"/>
     <updated>2012-10-11T04:21:34+07:00</updated>
     <id>http://reza.re/blog/2012/initial-vps-setup</id>
-    <content type="html"><![CDATA[<p>This is initial setup for my CentOS 6.3 virtual private server. I want to use it for deploying Rails application and hosting my website. This article only cover basic installation for web server, Ruby with RVM, Rails, and crontab.</p>
+    <content type="html"><![CDATA[<p>This is initial setup for my CentOS 6.3 virtual private server. I want to use it for deploying Rails application and hosting my website. This article only cover basic installation for web server, Ruby with RVM, Rails, and crontab.<!-- more --></p>
 
 <h2>Preparation</h2>
 
 <p>I will use <a href="http://server.example.org/">server.example.org</a> as my VPS hostname. I will not install DNS server to save some physical memory on VPS. On the DNS registrar management create address record or <code>A</code> record for server and point it to the VPS public ip address. Access VPS via SSH or <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">putty</a> if using Windows.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[reza@local ~]$ ssh &lt;a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x72;&#x6f;&#x6f;&#x74;&#x40;&#115;&#101;&#x72;&#118;&#x65;&#x72;&#46;&#x65;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#x2e;&#111;&#x72;&#103;">&#x72;&#x6f;&#x6f;&#116;&#64;&#115;&#101;&#x72;&#x76;&#x65;&#x72;&#46;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#x2e;&#111;&#x72;&#103;&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[reza@local ~]$ ssh &lt;a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#x72;&#111;&#x6f;&#116;&#x40;&#x73;&#x65;&#x72;&#118;&#x65;&#114;&#46;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#101;&#x2e;&#111;&#x72;&#x67;">&#x72;&#x6f;&#x6f;&#116;&#x40;&#115;&#101;&#x72;&#x76;&#101;&#x72;&#x2e;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#111;&#x72;&#103;&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>As usual, run update after OS installation:</p>
 

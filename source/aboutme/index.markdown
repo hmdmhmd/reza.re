@@ -10,7 +10,7 @@ My name is Reza Jatnika, a master student at School of Electrical Engineering an
 
 
 ### About This Site ###
-This website is using [Octopress](http://octopress.org/) and hosted on [OpenShift](https://www.openshift.com/). Secure version of this website [https://website-rezajatnika.rhcloud.com/](https://website-rezajatnika.rhcloud.com/).
+This website is using [Octopress](http://octopress.org/) and hosted on [OpenShift](https://www.openshift.com/). Secure version of this website [https://rezare-rezajatnika.rhcloud.com/](https://rezare-rezajatnika.rhcloud.com/).
 
 ### Octopress Theme ###
 My website theme is available on [GitHub](https://github.com/rezajatnika/greyjoy).

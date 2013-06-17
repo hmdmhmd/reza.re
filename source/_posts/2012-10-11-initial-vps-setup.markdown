@@ -6,7 +6,7 @@ description: Initial setup and configuration Centos 6.3 virtual private server
 categories: [vps, nginx]
 ---
 
-This is initial setup for my CentOS 6.3 virtual private server. I want to use it for deploying Rails application and hosting my website. This article only cover basic installation for web server, Ruby with RVM, Rails, and crontab.
+This is initial setup for my CentOS 6.3 virtual private server. I want to use it for deploying Rails application and hosting my website. This article only cover basic installation for web server, Ruby with RVM, Rails, and crontab.<!-- more -->
 
 ## Preparation
 I will use [server.example.org](http://server.example.org/) as my VPS hostname. I will not install DNS server to save some physical memory on VPS. On the DNS registrar management create address record or `A` record for server and point it to the VPS public ip address. Access VPS via SSH or [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) if using Windows.

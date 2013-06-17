@@ -7,6 +7,7 @@ categories: octopress
 ---
 
 Deploying Jekyll or Octopress based website to Heroku is really easy and simple, because Heroku use git for source code management. Heroku will create automatically our server based on our type of application, but we can't choose server location. With AppFog we can choose nearest server from our location. I live in Indonesia, so the nearest infrastucture is AWS Singapore. We can have very little response time compared to Heroku.
+<!-- more -->
 
 ## Preparation ##
 Deploying to AppFog is not as easy as deploying to Heroku. We need to configure Octopress. Before that, lets install af gem. It's similar to heroku gem.

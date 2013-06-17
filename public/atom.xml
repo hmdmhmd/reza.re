@@ -4,7 +4,7 @@
   <title><![CDATA[Reza Jatnika]]></title>
   <link href="http://reza.re/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-17T04:22:46+07:00</updated>
+  <updated>2013-06-17T11:13:58+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -52,6 +52,9 @@
     <updated>2013-06-15T04:55:00+07:00</updated>
     <id>http://reza.re/blog/2013/deploying-octopress-slash-jekyll-on-appfog</id>
     <content type="html"><![CDATA[<p>Deploying Jekyll or Octopress based website to Heroku is really easy and simple, because Heroku use git for source code management. Heroku will create automatically our server based on our type of application, but we can&rsquo;t choose server location. With AppFog we can choose nearest server from our location. I live in Indonesia, so the nearest infrastucture is AWS Singapore. We can have very little response time compared to Heroku.</p>
+
+<!-- more -->
+
 
 <h2>Preparation</h2>
 
@@ -217,6 +220,9 @@
     <id>http://reza.re/blog/2013/improving-octopress-performance</id>
     <content type="html"><![CDATA[<p>This is how I improving octopress website based, it&rsquo;s covers Cloudflare DNS/CDN management and configuration of heroku and sinatra.</p>
 
+<!-- more -->
+
+
 <h2>DNS and CDN Management</h2>
 
 <p>CloudFlare is more than just a DNS, their service includes a CDN, page acceleration, security checking, DDOS protection, and more. However, you can switch all that off and just use their DNS. They delivered marginally the best performance. In terms of pricing, if you don’t need SSL, it’s free; if you do need SSL, then your first site is $240 per year, subsequent sites $60 per year.</p>
@@ -287,7 +293,7 @@
     <link href="http://reza.re/blog/2012/single-user-rvm/"/>
     <updated>2012-11-05T00:32:00+07:00</updated>
     <id>http://reza.re/blog/2012/single-user-rvm</id>
-    <content type="html"><![CDATA[<p>Using RVM we can manage multiple Ruby version along with it&rsquo;s gemsets. Installing RVM for single user is very easy, especially on Ubuntu. Install <code>build-essential</code> and <code>git-core</code> package.</p>
+    <content type="html"><![CDATA[<p>Using RVM we can manage multiple Ruby version along with it&rsquo;s gemsets. Installing RVM for single user is very easy, especially on Ubuntu. <!-- more --> Install <code>build-essential</code> and <code>git-core</code> package.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -341,6 +347,9 @@
     <updated>2012-10-13T01:18:13+07:00</updated>
     <id>http://reza.re/blog/2012/host-rails-application-with-nginx-and-passenger</id>
     <content type="html"><![CDATA[<p>Hosting and deploying Ruby on Rails application became very easy with <a href="http://www.modrails.com/">Phusion Passenger</a> or <code>mod_rails</code>. Phusion Passenger is an nginx module, which makes deploying Ruby and Ruby on Rails applications on nginx a breeze. This guide describes the required process for deploying Ruby on Rails with Passenger and the nginx web server on CentOS 6. Assume we have installed nginx and Ruby on Rails.</p>
+
+<!-- more -->
+
 
 <h2>Install Nginx with Phusion Passenger</h2>
 
@@ -421,7 +430,7 @@
     <link href="http://reza.re/blog/2012/initial-vps-setup/"/>
     <updated>2012-10-11T04:21:34+07:00</updated>
     <id>http://reza.re/blog/2012/initial-vps-setup</id>
-    <content type="html"><![CDATA[<p>This is initial setup for my CentOS 6.3 virtual private server. I want to use it for deploying Rails application and hosting my website. This article only cover basic installation for web server, Ruby with RVM, Rails, and crontab.</p>
+    <content type="html"><![CDATA[<p>This is initial setup for my CentOS 6.3 virtual private server. I want to use it for deploying Rails application and hosting my website. This article only cover basic installation for web server, Ruby with RVM, Rails, and crontab.<!-- more --></p>
 
 <h2>Preparation</h2>
 

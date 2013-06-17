@@ -2,15 +2,15 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://reza.re/blog/2012/initial-vps-setup/</loc>
-        <lastmod>2013-06-17T01:37:22+07:00</lastmod>
+        <lastmod>2013-06-17T10:05:08+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/blog/2012/host-rails-application-with-nginx-and-passenger/</loc>
-        <lastmod>2013-06-17T01:37:18+07:00</lastmod>
+        <lastmod>2013-06-17T10:05:15+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/blog/2012/single-user-rvm/</loc>
-        <lastmod>2013-06-17T01:30:01+07:00</lastmod>
+        <lastmod>2013-06-17T10:04:40+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/blog/2013/new-blog/</loc>
@@ -18,7 +18,7 @@
     </url>
     <url>
         <loc>http://reza.re/blog/2013/improving-octopress-performance/</loc>
-        <lastmod>2013-06-17T01:30:01+07:00</lastmod>
+        <lastmod>2013-06-17T10:04:14+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/blog/2013/intel-big-data-101/</loc>
@@ -26,7 +26,7 @@
     </url>
     <url>
         <loc>http://reza.re/blog/2013/deploying-octopress-slash-jekyll-on-appfog/</loc>
-        <lastmod>2013-06-17T01:30:01+07:00</lastmod>
+        <lastmod>2013-06-17T11:11:39+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/blog/2013/tywin-lannister-quote/</loc>
@@ -38,15 +38,15 @@
     </url>
     <url>
         <loc>http://reza.re/blog/archives/</loc>
-        <lastmod>2013-06-17T03:44:51+07:00</lastmod>
+        <lastmod>2013-06-17T11:11:39+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/blog/</loc>
-        <lastmod>2013-06-17T03:44:51+07:00</lastmod>
+        <lastmod>2013-06-17T11:11:39+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/aboutme/</loc>
-        <lastmod>2013-06-17T04:10:01+07:00</lastmod>
+        <lastmod>2013-06-17T10:27:36+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/404.html</loc>
@@ -54,11 +54,11 @@
     </url>
     <url>
         <loc>http://reza.re/archives/</loc>
-        <lastmod>2013-06-17T03:44:51+07:00</lastmod>
+        <lastmod>2013-06-17T11:11:39+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/</loc>
-        <lastmod>2013-06-17T03:44:51+07:00</lastmod>
+        <lastmod>2013-06-17T11:11:39+07:00</lastmod>
     </url>
     <url>
         <loc>http://reza.re/robots.txt</loc>

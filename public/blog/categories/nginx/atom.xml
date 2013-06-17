@@ -4,7 +4,7 @@
   <title><![CDATA[Category: nginx | Reza Jatnika]]></title>
   <link href="http://reza.re/blog/categories/nginx/atom.xml" rel="self"/>
   <link href="http://reza.re/"/>
-  <updated>2013-06-18T03:20:14+07:00</updated>
+  <updated>2013-06-18T03:56:45+07:00</updated>
   <id>http://reza.re/</id>
   <author>
     <name><![CDATA[Reza Jatnika]]></name>
@@ -144,7 +144,7 @@ For detailed guides see <a href="http://www.modrails.com/documentation/">Passeng
 <p>I will use <a href="http://server.example.org/">server.example.org</a> as my VPS hostname. I will not install DNS server to save some physical memory on VPS. On the DNS registrar management create address record or <code>A</code> record for server and point it to the VPS public ip address. Access VPS via SSH or <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">putty</a> if using Windows.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[reza@local ~]$ ssh &lt;a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#114;&#x6f;&#x6f;&#116;&#x40;&#x73;&#x65;&#114;&#x76;&#101;&#114;&#x2e;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x6f;&#114;&#103;">&#x72;&#x6f;&#111;&#x74;&#64;&#115;&#x65;&#x72;&#118;&#101;&#114;&#46;&#x65;&#x78;&#97;&#109;&#112;&#108;&#101;&#x2e;&#x6f;&#x72;&#103;&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[reza@local ~]$ ssh &lt;a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#114;&#x6f;&#111;&#x74;&#64;&#x73;&#101;&#x72;&#x76;&#x65;&#x72;&#x2e;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#111;&#x72;&#103;">&#x72;&#x6f;&#111;&#116;&#x40;&#x73;&#101;&#x72;&#x76;&#x65;&#x72;&#x2e;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#x2e;&#111;&#x72;&#103;&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>As usual, run update after OS installation:</p>
 

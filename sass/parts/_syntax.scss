@@ -15,7 +15,7 @@ $solar-blue:      #268bd2 !default;
 $solar-cyan:      #2aa198 !default;
 $solar-green:     #859900 !default;
 
-$solarized: dark !default;
+$solarized: light !default;
 
 @if $solarized == light {
 
@@ -48,13 +48,13 @@ article{
 		font-family: $font-mono;
 	}
 	code{
-		font-size: 0.9em;
+		font-size: 1em;
 		padding: 1px 3px;
 		margin: 0 3px;
 		@include border-radius(5px);
 	}
 	pre{
-		font-size: 1 / 0.9em;
+		font-size: 1em;
 		line-height: 1.5;
 		margin-top: 10px;
 		padding: 5px 15px;

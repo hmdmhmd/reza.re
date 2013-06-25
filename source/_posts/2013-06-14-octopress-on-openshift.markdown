@@ -16,7 +16,7 @@ With [OpenShift](https://www.openshift.com/) we can host Octopress based website
 <!-- more -->
 
 ## The Easy Way
-The easy way is the first method. Create an application with _Do It Yourself_ catridge. We can do it from Web console or witn command-line:
+The easy way is the first method. Create an application with _Do It Yourself_ catridge, we can do it from Web console or with command-line:
 
     $ rhc app create myapp diy-0.1
 
@@ -41,12 +41,12 @@ server = HTTPServer.new(config)
 server.start
 {% endcodeblock %}
 
-We can manually copy our generated website to public folder and push it. Or we can modify `Rakefile` to automatically doing it for us. I made some changes in Octopress default `Rakefile` and posted on gist. Move your app directory to Octopress root directory. Use `rake deploy` to automatically generate and push our website.
+We can manually copy our generated website to public folder and push it. Or we can modify `Rakefile` to automatically doing it for us. I made some changes in Octopress default `Rakefile` and posted on [gist](https://gist.github.com/rezajatnika/5857236). Move your app directory to Octopress root directory. Use `rake deploy` to automatically generate and push our website. Change deploy folder to your own.
 
 
 ## The Less Easy Way
-The second method is using nginx as a web server to host our generated website. Ofcourse we have to install nginx first. To do this log in into your
-application using ssh. Use `rhc show -a myapp` to see ssh address of our application. Or you can use some repo templates for automatically install nginx
+The second method is using nginx as a web server to host our generated website. Of course we have to install nginx first. To do this, log in into your
+application using ssh. Use `rhc show -a myapp` to see ssh address of your application. Or you can use some repo templates for automatically install nginx
 on OpenShift.
 
     $ ssh <random-string>@myapp-mydomain.rhcloud.com
@@ -70,7 +70,7 @@ See this page to read more about OpenShift environment variables. OpenShift only
     $ mv $OPENSHIFT_DATA_DIR/conf/nginx.conf $OPENSHIFT_DATA_DIR/conf/nginx.conf.def
 
 We will modify create the configuration file using when the start action hook is called. Now browse to our app directory, and open
-`.openshift/action_hooks/start` using text editor. Add these lines:
+`.openshift/action_hooks/start` using text editor. Add these lines below:
 
 {% codeblock start lang:bash %}
 #!/bin/bash
@@ -102,7 +102,7 @@ exit 0
 Create a folder named templates on `.openshift` folder. And create file named `nginx.conf.erb` in templates folder.
 Content of this file is just default nginx configuration with some modification on `listen` and `location` directive.
 
-{% codeblock nginx.conf.erb %}
+{% codeblock nginx.conf.erb lang:erb https://gist.github.com/rezajatnika/5857259 View on Gist %}
 ...
 
 server {
@@ -118,3 +118,8 @@ location / {
 
 ...
 {% endcodeblock %}
+
+And that's it. Just run `rake deploy` using the `Rakefile` I provided before. Having a diy
+cartidge on the OpenShift is like having a virtual private server, although we don't actually have
+full access. A small gear in OpenShift provided with 512 MB memory and 1 GB storage. More than enough
+for personal blog or website.

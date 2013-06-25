@@ -9,7 +9,7 @@ categories: rubyonrails
 Setting up Ubuntu for [Ruby on Rails](http://rubyonrails.org) development is very easy. Even it's not as easy
 as installing Rails in Windows, developing Rails in Ubuntu is way better than in
 Windows. I will show you how to build a good environment for Rails development in
-Ubuntu 13.04 (and work on lower version too).
+Ubuntu 13.04 (and work on lower version to).
 
 <!-- more -->
 

@@ -145,3 +145,14 @@ article{
 	padding: 15px 0;
 	@include border-shadow();
 }
+
+	h2.category{
+		font-size: 1.8em;
+		font-weight: 300;
+		line-height: 35px;
+		margin-bottom: 5px;
+		margin-top: 15px;
+		a{
+			color: $color-gray01;
+		}
+	}

@@ -8,7 +8,7 @@ categories: octopress
 
 Deploying [Octopress](http://octopress.org/) or [Jekyll](http://jekyllrb.com/) based website on [GitHub Pages](http://pages.github.com/)
 is really easy, just create a repo named `username.github.io` or
-create gh-pages branch in the project repository. Or we can deploy it to [Heroku](https://www.heroku.com/). A website generated from
+create gh-pages branch in the project repository, or we can deploy it to [Heroku](https://www.heroku.com/). A website generated from
 Jekyll is a real static website. What you see is really what you see. The dynamic content laying on embedding Javascript in the html pages.
 
 With [OpenShift](https://www.openshift.com/) we can host Octopress based website like on GitHub pages. We just host the static content and managing it with git. I found two methods to do this. First, just using Webrick server. Second, install nginx on our hosting platform.
@@ -108,6 +108,7 @@ Content of this file is just default nginx configuration with some modification 
 server {
         listen       <%= ENV['OPENSHIFT_DIY_IP'] %>:<%= ENV['OPENSHIFT_DIY_PORT'] %>;
         server_name  localhost;
+        port_in_redirect off;
 
 ...
 

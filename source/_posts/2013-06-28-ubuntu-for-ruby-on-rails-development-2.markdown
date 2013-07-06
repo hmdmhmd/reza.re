@@ -6,4 +6,9 @@ comments: true
 categories: rubyonrails
 ---
 
-Lorem ipsum dolor amet.
+This is the second part of building Ruby on Rails development on Ubuntu. This part
+will discuse about database, deployment method, and text editor.
+
+<!-- more -->
+
+## Postgresql

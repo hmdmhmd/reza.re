@@ -48,13 +48,13 @@ article{
 		font-family: $font-mono;
 	}
 	code{
-		font-size: 1em;
+		font-size: 0.9em;
 		padding: 1px 3px;
 		margin: 0 3px;
 		@include border-radius(5px);
 	}
 	pre{
-		font-size: 1em;
+		font-size: 0.9em;
 		line-height: 1.5;
 		margin-top: 10px;
 		padding: 5px 15px;

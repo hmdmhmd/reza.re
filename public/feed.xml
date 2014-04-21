@@ -176,21 +176,25 @@ uia ut cupiditate officiis odio fugiat sint provident adipisci beatae.&lt;/p&gt;
 
 &lt;p&gt;This is only static HTML pages.&lt;/p&gt;
 
-&lt;p&gt;*[HTML]: Hyper Text Markup Language&lt;/p&gt;
-
 &lt;h1&gt;List Types&lt;/h1&gt;
+
+&lt;p&gt;List type elements.&lt;/p&gt;
 
 &lt;h2&gt;Ordered List&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Ordered list&lt;/li&gt;
 &lt;li&gt;Ordered list&lt;/li&gt;
-&lt;li&gt;Ordered list
-## Unordered List&lt;/li&gt;
-&lt;li&gt;Unordered list&lt;/li&gt;
-&lt;li&gt;Unordered list&lt;/li&gt;
-&lt;li&gt;Unordered list&lt;/li&gt;
+&lt;li&gt;Ordered list&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h2&gt;Unordered List&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unordered list&lt;/li&gt;
+&lt;li&gt;Unordered list&lt;/li&gt;
+&lt;li&gt;Unordered list&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1&gt;Code Block&lt;/h1&gt;
 

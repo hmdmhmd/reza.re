@@ -9,7 +9,9 @@ Below is just about everything you’ll need to style in the theme.
 Check the source code to see the many embedded elements within paragraphs.
 
 # Heading 1
+
 ## Heading 2
+
 ### Heading 3
 
 # Paragraph
@@ -23,13 +25,14 @@ uia ut cupiditate officiis odio fugiat sint provident adipisci beatae.
 
 This is only static HTML pages.
 
-*[HTML]: Hyper Text Markup Language
-
 # List Types
+List type elements.
+
 ## Ordered List
 1. Ordered list
 2. Ordered list
 3. Ordered list
+
 ## Unordered List
 - Unordered list
 - Unordered list

@@ -10,6 +10,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   letter-spacing: 0.4px;
 }
 
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  border-top: solid 5px #2aa198;
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -60,8 +66,12 @@ p {
   margin-bottom: 15px;
 }
 
-ul, ol {
-  padding: 0 0 18px 30px;
+ul {
+  padding: 0 0 0px 30px;
+}
+
+ol {
+  padding: 0 0 0px 40px;
 }
 
 ol li, ul li {

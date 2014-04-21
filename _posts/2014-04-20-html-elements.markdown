@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "HTML Elements"
-date:   2014-04-21 02:06:25
-categories: html
+date:   2014-04-20 02:06:25
+tags: html
 ---
 
 Below is just about everything you’ll need to style in the theme.

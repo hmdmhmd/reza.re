@@ -7,6 +7,125 @@
 		<atom:link href="http://reza.re/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Ruby on Rails on Mac OS X 10.9</title>
+				<description>&lt;p&gt;This is simple guide to setting up Ruby on Rails development environment on Mac OS X 10.9 Mavericks &lt;em&gt;without modifying core files&lt;/em&gt;. Older versions of OS X are mostly compatible with this guide, if you run into a problem, then try Googling it.&lt;/p&gt;
+
+&lt;h1 id=&quot;command_line_tools&quot;&gt;Command Line Tools&lt;/h1&gt;
+
+&lt;p&gt;First of all we need Command Line Tools from the terminal.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ xcode-select --install&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We will see pop-up window appear asking to install.&lt;/p&gt;
+
+&lt;h1 id=&quot;homebrew&quot;&gt;Homebrew&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://brew.sh&quot;&gt;Homebrew&lt;/a&gt; allow us to install and compile software packages we need that Apple didn’t provide. It is similar to &lt;a href=&quot;http://www.macports.org&quot;&gt;MacPorts&lt;/a&gt;. To install Homebrew, run this command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now check our Homebrew configurations.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew doctor&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check Homebrew by installing some packages.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install sqlite wget&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information about Homebrew, visit the wiki page on &lt;a href=&quot;https://github.com/Homebrew/homebrew/wiki&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;ruby_with_chruby&quot;&gt;Ruby with Chruby&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/postmodern/chruby&quot;&gt;&lt;code&gt;Chruby&lt;/code&gt;&lt;/a&gt; is a very simple Ruby version manager, we are using &lt;code&gt;chruby&lt;/code&gt; for change the current Ruby. To install Ruby we need to install &lt;code&gt;ruby-build&lt;/code&gt; using Homebrew.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install chruby ruby-build&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Install Ruby using &lt;code&gt;ruby-build&lt;/code&gt; in &lt;code&gt;~/.rubies&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ruby-build 2.1.1 ~/.rubies/ruby-2.1.1
+$ chruby 2.1.1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sit back and wait for it to finish. After Ruby installed, add this line to &lt;code&gt;~/.bashrc&lt;/code&gt; or &lt;code&gt;~/.zshrc&lt;/code&gt; if we are using &lt;code&gt;zsh&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;chruby ruby-2.1.1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For skip installing gems doc.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;#39;gem: --no-document&amp;#39; &amp;gt;&amp;gt; ~/.gemrc&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;rails_gem&quot;&gt;Rails Gem&lt;/h1&gt;
+
+&lt;p&gt;Installing Rails is very simple after we’ve install Ruby.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install rails&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Verify our Rails version.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rails -v&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;configure_git&quot;&gt;Configure Git&lt;/h1&gt;
+
+&lt;p&gt;We’ll be using Git for our version control system so we’re going to set it up to match our &lt;a href=&quot;https://github.com&quot;&gt;Github&lt;/a&gt; account. If you don’t already have a Github account, make sure to register. It will come in handy for the future.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git config --global color.ui true
+$ git config --global user.name &amp;quot;User Example&amp;quot;
+$ git config --global user.email &amp;quot;user@example.com&amp;quot;
+$ ssh-keygen -t rsa -C &amp;quot;user@example.com&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Run the following code to copy the key to your clipboard.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pbcopy &amp;lt; ~/.ssh/id_rsa.pub&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Paste it &lt;a href=&quot;https://github.com/settings/ssh&quot;&gt;here&lt;/a&gt; and see if it worked.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh -T git@github.com
+Hi user! You&amp;#39;ve successfully authenticated, but GitHub does not provide shell access.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;postgresql&quot;&gt;PostgreSQL&lt;/h1&gt;
+
+&lt;p&gt;Install PostgreSQL from Homebrew.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install postgresql&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a new database (as explained after installing).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ initdb /usr/local/var/postgres -E utf8&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We are using &lt;code&gt;lunchy&lt;/code&gt; to will allow us to easily start and stop Postgres.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install lunchy
+$ mkdir -p ~/Library/LaunchAgents
+$ cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To start PostgreSQL process.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ lunchy start postgres&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By default the postgresql user is your current OS X username with no password.&lt;/p&gt;
+
+&lt;h1 id=&quot;final_step&quot;&gt;Final Step&lt;/h1&gt;
+
+&lt;p&gt;Let’s create our first Rails application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rails new myapp&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;if we want to using PostgreSQL.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rails new myapp -d postgresql&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check our new application if it worked as we want it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd myapp
+$ bundle exec rake db:create
+$ rails s&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can now visit &lt;code&gt;http://localhost:3000&lt;/code&gt; to view our new website.&lt;/p&gt;</description>
+				<pubDate>Mon, 21 Apr 2014 00:00:00 +0700</pubDate>
+				<link>http://reza.re/blog/2014/04/21/ruby-on-rails-on-mac-os-x-10-dot-9/</link>
+				<guid isPermaLink="true">http://reza.re/blog/2014/04/21/ruby-on-rails-on-mac-os-x-10-dot-9/</guid>
+			</item>
+		
+			<item>
 				<title>HTML Elements</title>
 				<description>&lt;p&gt;Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
 
@@ -66,9 +185,9 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;And here’s a bit of trailing text.&lt;/p&gt;</description>
-				<pubDate>Mon, 21 Apr 2014 09:06:25 +0700</pubDate>
-				<link>http://reza.re/blog/2014/04/21/html-elements/</link>
-				<guid isPermaLink="true">http://reza.re/blog/2014/04/21/html-elements/</guid>
+				<pubDate>Sun, 20 Apr 2014 09:06:25 +0700</pubDate>
+				<link>http://reza.re/blog/2014/04/20/html-elements/</link>
+				<guid isPermaLink="true">http://reza.re/blog/2014/04/20/html-elements/</guid>
 			</item>
 		
 	</channel>

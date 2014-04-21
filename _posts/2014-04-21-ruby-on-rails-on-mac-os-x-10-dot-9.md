@@ -5,9 +5,9 @@ date: 2014-04-21 07:06:25
 tags: rails
 ---
 
-This is simple guide to setting up Ruby on Rails development environment on
-Mac OS X 10.9 Mavericks *without modifying core files*. Older versions of OS X
-are mostly compatible with this guide, if you run into a problem,
+This is simple guide to setting up [Ruby on Rails](http://rubyonrails.org)
+development environment on Mac OS X 10.9 Mavericks *without modifying core files*.
+Older versions of OS X are mostly compatible with this guide, if you run into a problem,
 then try Googling it.
 
 #  Command Line Tools
@@ -50,7 +50,11 @@ Install Ruby using `ruby-build` in `~/.rubies` directory.
 Sit back and wait for it to finish. After Ruby installed, add this line to `~/.bashrc`
 or `~/.zshrc` if we are using `zsh`.
 
-    chruby ruby-2.1.1
+{% highlight bash %}
+source /usr/local/opt/chruby/share/chruby/auto.sh
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+chruby ruby-2.1.1
+{% endhighlight %}
 
 For skip installing gems doc.
 
@@ -67,7 +71,7 @@ Verify our Rails version.
 
 # Configure Git
 We'll be using Git for our version control system so we're going to set it up
-to match our [Github](https://github.com) account. If you don't already have a Github account,
+to match our [GitHub](https://github.com) account. If you don't already have a GitHub account,
 make sure to register. It will come in handy for the future.
 
     $ git config --global color.ui true
@@ -103,7 +107,7 @@ To start PostgreSQL process.
 
     $ lunchy start postgres
 
-By default the postgresql user is your current OS X username with no password.
+By default the PostgreSQL user is your current OS X username with no password.
 
 # Final Step
 Let's create our first Rails application.

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Rails Debug Dump | Reza Jatnika</title>
+  <title>Pow and Chruby | Reza Jatnika</title>
   <meta name="viewport" content="width=device-width">
   <link href="/assets/css/style.css" rel="stylesheet" />
   <link href="/assets/css/colors-dark.css" rel="stylesheet" />
@@ -30,35 +30,32 @@
     <div id="content">
       
       <article class="post">
-  <h1><a href="/blog/2014/03/22/rails-debug-dump/">Rails Debug Dump</a></h1>
-  <p class="meta">Posted on <span class="postdate">Mar 22, 2014</span></p>
-  <div class="post-content"><p>For displaying debug dump in Rails on development environment,
-edit <code>application.html.erb</code>. Add this lines inside the <code>&lt;body&gt;</code> tag.</p>
+  <h1><a href="/blog/2014/04/21/pow-and-chruby/">Pow and Chruby</a></h1>
+  <p class="meta">Posted on <span class="postdate">Apr 21, 2014</span></p>
+  <div class="post-content"><p><a href="http://pow.cx">Pow</a> is a zero-config Rack server for Mac OS X. Have it serving your apps
+locally in under a minute.</p>
 
-<div class="highlight"><pre><code class="erb"><span class="x">&lt;body&gt;</span>
-<span class="x">  </span><span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span><span class="x"></span>
-<span class="x">  </span><span class="cp">&lt;%=</span> <span class="n">debug</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="k">if</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">development?</span> <span class="cp">%&gt;</span><span class="x"></span>
-<span class="x">&lt;/body&gt;</span>
+<h1>Install Pow</h1>
+
+<p>To install or upgrade Pow, open a terminal and run this command:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ curl get.pow.cx | sh
+</code></pre></div>
+<p>To set up a Rack app, just symlink it into <code>~/.pow</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ~/.pow
+$ ln -s /path/to/myapp
+</code></pre></div>
+<p>That’s it! Your app will be up and running at <a href="#"><code>http://myapp.dev</code></a>.
+See the user’s <a href="http://pow.cx/manual.html">manual</a> for more information.</p>
+
+<h1>Pow with <code>chruby</code></h1>
+
+<p>To make Pow works with <code>chruby</code>, add <code>.powrc</code> file to our application root folder.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">source</span> /usr/local/opt/chruby/share/chruby/chruby.sh
+chruby ruby-2.1.1
 </code></pre></div>
 
-<!-- more -->
-
-<p>To make things look nicer add some SCSS.</p>
-
-<div class="highlight"><pre><code class="scss"><span class="k">@mixin</span><span class="nf"> box_sizing</span> <span class="p">{</span>
- <span class="na">-moz-box-sizing</span><span class="o">:</span> <span class="no">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
- <span class="na">-webkit-box-sizing</span><span class="o">:</span> <span class="no">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
- <span class="na">box-sizing</span><span class="o">:</span> <span class="no">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.debug_dump</span> <span class="p">{</span>
-  <span class="na">clear</span><span class="o">:</span> <span class="no">both</span><span class="p">;</span>
-  <span class="na">float</span><span class="o">:</span> <span class="no">left</span><span class="p">;</span>
-  <span class="na">width</span><span class="o">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-  <span class="na">margin-top</span><span class="o">:</span> <span class="mi">45</span><span class="kt">px</span><span class="p">;</span>
-  <span class="k">@include</span><span class="nd"> box_sizing</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>Now, you can access your app in your browser at <a href="#"><code>http://myapp.dev</code></a>.</p>
 </div>
 </article>
 <div class="comments">

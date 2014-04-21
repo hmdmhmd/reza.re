@@ -7,119 +7,147 @@
 		<atom:link href="http://reza.re/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Ruby on Rails on Mac OS X 10.9</title>
-				<description>&lt;p&gt;This is simple guide to setting up Ruby on Rails development environment on Mac OS X 10.9 Mavericks &lt;em&gt;without modifying core files&lt;/em&gt;. Older versions of OS X are mostly compatible with this guide, if you run into a problem, then try Googling it.&lt;/p&gt;
+				<title>Pow and Chruby</title>
+				<description>&lt;p&gt;&lt;a href=&quot;http://pow.cx&quot;&gt;Pow&lt;/a&gt; is a zero-config Rack server for Mac OS X. Have it serving your apps
+locally in under a minute.&lt;/p&gt;
 
-&lt;h1 id=&quot;command_line_tools&quot;&gt;Command Line Tools&lt;/h1&gt;
+&lt;h1&gt;Install Pow&lt;/h1&gt;
+
+&lt;p&gt;To install or upgrade Pow, open a terminal and run this command:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ curl get.pow.cx | sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To set up a Rack app, just symlink it into &lt;code&gt;~/.pow&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cd ~/.pow
+$ ln -s /path/to/myapp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That’s it! Your app will be up and running at &lt;a href=&quot;#&quot;&gt;&lt;code&gt;http://myapp.dev&lt;/code&gt;&lt;/a&gt;.
+See the user’s &lt;a href=&quot;http://pow.cx/manual.html&quot;&gt;manual&lt;/a&gt; for more information.&lt;/p&gt;
+
+&lt;h1&gt;Pow with &lt;code&gt;chruby&lt;/code&gt;&lt;/h1&gt;
+
+&lt;p&gt;To make Pow works with &lt;code&gt;chruby&lt;/code&gt;, add &lt;code&gt;.powrc&lt;/code&gt; file to our application root folder.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /usr/local/opt/chruby/share/chruby/chruby.sh
+chruby ruby-2.1.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, you can access your app in your browser at &lt;a href=&quot;#&quot;&gt;&lt;code&gt;http://myapp.dev&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Mon, 21 Apr 2014 18:50:26 +0700</pubDate>
+				<link>http://reza.re/blog/2014/04/21/pow-and-chruby/</link>
+				<guid isPermaLink="true">http://reza.re/blog/2014/04/21/pow-and-chruby/</guid>
+			</item>
+		
+			<item>
+				<title>Ruby on Rails on Mac OS X 10.9</title>
+				<description>&lt;p&gt;This is simple guide to setting up &lt;a href=&quot;http://rubyonrails.org&quot;&gt;Ruby on Rails&lt;/a&gt;
+development environment on Mac OS X 10.9 Mavericks &lt;em&gt;without modifying core files&lt;/em&gt;.
+Older versions of OS X are mostly compatible with this guide, if you run into a problem,
+then try Googling it.&lt;/p&gt;
+
+&lt;h1&gt;Command Line Tools&lt;/h1&gt;
 
 &lt;p&gt;First of all we need Command Line Tools from the terminal.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ xcode-select --install&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ xcode-select --install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We will see pop-up window appear asking to install.&lt;/p&gt;
 
-&lt;h1 id=&quot;homebrew&quot;&gt;Homebrew&lt;/h1&gt;
+&lt;h1&gt;Homebrew&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://brew.sh&quot;&gt;Homebrew&lt;/a&gt; allow us to install and compile software packages we need that Apple didn’t provide. It is similar to &lt;a href=&quot;http://www.macports.org&quot;&gt;MacPorts&lt;/a&gt;. To install Homebrew, run this command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;&lt;a href=&quot;http://brew.sh&quot;&gt;Homebrew&lt;/a&gt; allow us to install and compile software packages
+we need that Apple didn’t provide. It is similar to &lt;a href=&quot;http://www.macports.org&quot;&gt;MacPorts&lt;/a&gt;.
+To install Homebrew, run this command:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now check our Homebrew configurations.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ brew doctor&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ brew doctor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Check Homebrew by installing some packages.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ brew install sqlite wget
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For more information about Homebrew, visit the wiki page on
+&lt;a href=&quot;https://github.com/Homebrew/homebrew/wiki&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ brew install sqlite wget&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;Ruby with Chruby&lt;/h1&gt;
 
-&lt;p&gt;For more information about Homebrew, visit the wiki page on &lt;a href=&quot;https://github.com/Homebrew/homebrew/wiki&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;ruby_with_chruby&quot;&gt;Ruby with Chruby&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/postmodern/chruby&quot;&gt;&lt;code&gt;Chruby&lt;/code&gt;&lt;/a&gt; is a very simple Ruby version manager, we are using &lt;code&gt;chruby&lt;/code&gt; for change the current Ruby. To install Ruby we need to install &lt;code&gt;ruby-build&lt;/code&gt; using Homebrew.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ brew install chruby ruby-build&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;&lt;a href=&quot;https://github.com/postmodern/chruby&quot;&gt;&lt;code&gt;Chruby&lt;/code&gt;&lt;/a&gt; is a very simple Ruby version manager,
+we are using &lt;code&gt;chruby&lt;/code&gt; for change the current Ruby. To install Ruby we need to install
+&lt;code&gt;ruby-build&lt;/code&gt; using Homebrew.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ brew install chruby ruby-build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Install Ruby using &lt;code&gt;ruby-build&lt;/code&gt; in &lt;code&gt;~/.rubies&lt;/code&gt; directory.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ ruby-build 2.1.1 ~/.rubies/ruby-2.1.1
+$ chruby 2.1.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sit back and wait for it to finish. After Ruby installed, add this line to &lt;code&gt;~/.bashrc&lt;/code&gt;
+or &lt;code&gt;~/.zshrc&lt;/code&gt; if we are using &lt;code&gt;zsh&lt;/code&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ruby-build 2.1.1 ~/.rubies/ruby-2.1.1
-$ chruby 2.1.1&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Sit back and wait for it to finish. After Ruby installed, add this line to &lt;code&gt;~/.bashrc&lt;/code&gt; or &lt;code&gt;~/.zshrc&lt;/code&gt; if we are using &lt;code&gt;zsh&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;chruby ruby-2.1.1&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /usr/local/opt/chruby/share/chruby/auto.sh
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /usr/local/opt/chruby/share/chruby/chruby.sh
+chruby ruby-2.1.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;For skip installing gems doc.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;echo &amp;#39;gem: --no-document&amp;#39; &amp;gt;&amp;gt; ~/.gemrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Rails Gem&lt;/h1&gt;
 
-&lt;pre&gt;&lt;code&gt;echo &amp;#39;gem: --no-document&amp;#39; &amp;gt;&amp;gt; ~/.gemrc&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;rails_gem&quot;&gt;Rails Gem&lt;/h1&gt;
-
-&lt;p&gt;Installing Rails is very simple after we’ve install Ruby.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ gem install rails&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;Installing Rails is very simple after we&amp;#39;ve install Ruby.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ gem install rails
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Verify our Rails version.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ rails -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Configure Git&lt;/h1&gt;
 
-&lt;pre&gt;&lt;code&gt;$ rails -v&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;configure_git&quot;&gt;Configure Git&lt;/h1&gt;
-
-&lt;p&gt;We’ll be using Git for our version control system so we’re going to set it up to match our &lt;a href=&quot;https://github.com&quot;&gt;Github&lt;/a&gt; account. If you don’t already have a Github account, make sure to register. It will come in handy for the future.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ git config --global color.ui true
+&lt;p&gt;We&amp;#39;ll be using Git for our version control system so we&amp;#39;re going to set it up
+to match our &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt; account. If you don&amp;#39;t already have a GitHub account,
+make sure to register. It will come in handy for the future.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git config --global color.ui true
 $ git config --global user.name &amp;quot;User Example&amp;quot;
 $ git config --global user.email &amp;quot;user@example.com&amp;quot;
-$ ssh-keygen -t rsa -C &amp;quot;user@example.com&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-
+$ ssh-keygen -t rsa -C &amp;quot;user@example.com&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Run the following code to copy the key to your clipboard.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ pbcopy &amp;lt; ~/.ssh/id_rsa.pub&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ pbcopy &amp;lt; ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Paste it &lt;a href=&quot;https://github.com/settings/ssh&quot;&gt;here&lt;/a&gt; and see if it worked.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh -T git@github.com
-Hi user! You&amp;#39;ve successfully authenticated, but GitHub does not provide shell access.&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;postgresql&quot;&gt;PostgreSQL&lt;/h1&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ ssh -T git@github.com
+Hi user! You&amp;#39;ve successfully authenticated, but GitHub does not provide shell access.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;PostgreSQL&lt;/h1&gt;
 
 &lt;p&gt;Install PostgreSQL from Homebrew.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ brew install postgresql&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ brew install postgresql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Create a new database (as explained after installing).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ initdb /usr/local/var/postgres -E utf8&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ initdb /usr/local/var/postgres -E utf8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We are using &lt;code&gt;lunchy&lt;/code&gt; to will allow us to easily start and stop Postgres.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ gem install lunchy
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ gem install lunchy
 $ mkdir -p ~/Library/LaunchAgents
-$ cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/&lt;/code&gt;&lt;/pre&gt;
-
+$ cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To start PostgreSQL process.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ lunchy start postgres
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;By default the PostgreSQL user is your current OS X username with no password.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ lunchy start postgres&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;Final Step&lt;/h1&gt;
 
-&lt;p&gt;By default the postgresql user is your current OS X username with no password.&lt;/p&gt;
-
-&lt;h1 id=&quot;final_step&quot;&gt;Final Step&lt;/h1&gt;
-
-&lt;p&gt;Let’s create our first Rails application.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rails new myapp&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;Let&amp;#39;s create our first Rails application.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ rails new myapp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;if we want to using PostgreSQL.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rails new myapp -d postgresql&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ rails new myapp -d postgresql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Check our new application if it worked as we want it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd myapp
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cd myapp
 $ bundle exec rake db:create
-$ rails s&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can now visit &lt;a href=&quot;http://localhost:3000&quot;&gt;&lt;code&gt;http://localhost:3000&lt;/code&gt;&lt;/a&gt; to view our new website.&lt;/p&gt;</description>
+$ rails s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can now visit &lt;a href=&quot;http://localhost:3000&quot;&gt;&lt;code&gt;http://localhost:3000&lt;/code&gt;&lt;/a&gt; to view our new website.&lt;/p&gt;
+</description>
 				<pubDate>Mon, 21 Apr 2014 14:06:25 +0700</pubDate>
 				<link>http://reza.re/blog/2014/04/21/ruby-on-rails-on-mac-os-x-10-dot-9/</link>
 				<guid isPermaLink="true">http://reza.re/blog/2014/04/21/ruby-on-rails-on-mac-os-x-10-dot-9/</guid>
@@ -127,64 +155,70 @@ $ rails s&lt;/code&gt;&lt;/pre&gt;
 		
 			<item>
 				<title>HTML Elements</title>
-				<description>&lt;p&gt;Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
+				<description>&lt;p&gt;Below is just about everything you’ll need to style in the theme.
+Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
 
-&lt;h1 id=&quot;heading_1&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h1&gt;Heading 1&lt;/h1&gt;
 
-&lt;h2 id=&quot;heading_2&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
 
-&lt;h3 id=&quot;heading_3&quot;&gt;Heading 3&lt;/h3&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
 
-&lt;h1 id=&quot;paragraph&quot;&gt;Paragraph&lt;/h1&gt;
+&lt;h1&gt;Paragraph&lt;/h1&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, &lt;a href=&quot;http://reza.re&quot;&gt;consectetur&lt;/a&gt; adipisicing elit. Quia, officiis, natus ipsam doloremque enim rerum itaque quasi quisquam ea &lt;strong&gt;vero hic consectetur&lt;/strong&gt; totam &lt;em&gt;consequuntur accusamus est&lt;/em&gt; commodi sunt rem voluptate.&lt;/p&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, &lt;a href=&quot;http://reza.re&quot;&gt;consectetur&lt;/a&gt; adipisicing elit.
+Quia, officiis, natus ipsam doloremque enim rerum itaque quasi quisquam ea
+&lt;strong&gt;vero hic consectetur&lt;/strong&gt; totam &lt;em&gt;consequuntur accusamus est&lt;/em&gt; commodi sunt rem voluptate.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;Lorem ipsum dolor sit amet&lt;/code&gt;, consectetur adipisicing elit. Ipsam, ullam, quod, maiores architecto maxime quasi perferendis rerum laboriosam dolorum laborum uia ut cupiditate officiis odio fugiat sint provident adipisci beatae.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Lorem ipsum dolor sit amet&lt;/code&gt;, consectetur adipisicing elit. Ipsam, ullam, quod,
+maiores architecto maxime quasi perferendis rerum laboriosam dolorum laborum
+uia ut cupiditate officiis odio fugiat sint provident adipisci beatae.&lt;/p&gt;
 
-&lt;p&gt;This is only static &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt; pages.&lt;/p&gt;
+&lt;p&gt;This is only static HTML pages.&lt;/p&gt;
 
-&lt;h1 id=&quot;list_types&quot;&gt;List Types&lt;/h1&gt;
+&lt;p&gt;*[HTML]: Hyper Text Markup Language&lt;/p&gt;
 
-&lt;h2 id=&quot;ordered_list&quot;&gt;Ordered List&lt;/h2&gt;
+&lt;h1&gt;List Types&lt;/h1&gt;
+
+&lt;h2&gt;Ordered List&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Ordered list&lt;/li&gt;
-
 &lt;li&gt;Ordered list&lt;/li&gt;
-
-&lt;li&gt;Ordered list&lt;/li&gt;
+&lt;li&gt;Ordered list
+## Unordered List&lt;/li&gt;
+&lt;li&gt;Unordered list&lt;/li&gt;
+&lt;li&gt;Unordered list&lt;/li&gt;
+&lt;li&gt;Unordered list&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;unordered_list&quot;&gt;Unordered List&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Unordered list&lt;/li&gt;
-
-&lt;li&gt;Unordered list&lt;/li&gt;
-
-&lt;li&gt;Unordered list&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;code_block&quot;&gt;Code Block&lt;/h1&gt;
+&lt;h1&gt;Code Block&lt;/h1&gt;
 
 &lt;p&gt;Code block generated by Liquid tags.&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;ruby&#39;&gt;&lt;span class=&#39;k&#39;&gt;def&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;show&lt;/span&gt;
-  &lt;span class=&#39;vi&#39;&gt;@widget&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;Widget&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;params&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;ss&#39;&gt;:id&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;]&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
-  &lt;span class=&#39;n&#39;&gt;respond_to&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;do&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;|&lt;/span&gt;&lt;span class=&#39;nb&#39;&gt;format&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;|&lt;/span&gt;
-    &lt;span class=&#39;nb&#39;&gt;format&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;html&lt;/span&gt; &lt;span class=&#39;c1&#39;&gt;# show.html.erb&lt;/span&gt;
-    &lt;span class=&#39;nb&#39;&gt;format&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;json&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;render&lt;/span&gt; &lt;span class=&#39;ss&#39;&gt;json&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;vi&#39;&gt;@widget&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
-  &lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&quot;blockquotes&quot;&gt;Blockquotes&lt;/h1&gt;
 
-&lt;p&gt;Let’s keep it simple. Italics are good to help set it off from the body text. Be sure to style the citation.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# show.html.erb&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Blockquotes&lt;/h1&gt;
+
+&lt;p&gt;Let’s keep it simple. Italics are good to help set it off from the body text.
+Be sure to style the citation.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you’d like to hear it I can sing it for you.&lt;/p&gt;
+&lt;p&gt;Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at
+the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor
+was Mr. Langley, and he taught me to sing a song. If you’d like to hear it
+I can sing it for you.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;And here’s a bit of trailing text.&lt;/p&gt;</description>
+&lt;p&gt;And here’s a bit of trailing text.&lt;/p&gt;
+</description>
 				<pubDate>Sun, 20 Apr 2014 09:06:25 +0700</pubDate>
 				<link>http://reza.re/blog/2014/04/20/html-elements/</link>
 				<guid isPermaLink="true">http://reza.re/blog/2014/04/20/html-elements/</guid>
@@ -192,27 +226,34 @@ $ rails s&lt;/code&gt;&lt;/pre&gt;
 		
 			<item>
 				<title>Rails Debug Dump</title>
-				<description>&lt;p&gt;For displaying debug dump in Rails on development environment, edit &lt;code&gt;application.html.erb&lt;/code&gt;. Add this lines inside the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tag.&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;erb&#39;&gt;&lt;span class=&#39;x&#39;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class=&#39;x&#39;&gt;  &lt;/span&gt;&lt;span class=&#39;cp&#39;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;yield&lt;/span&gt; &lt;span class=&#39;cp&#39;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&#39;x&#39; /&gt;
-&lt;span class=&#39;x&#39;&gt;  &lt;/span&gt;&lt;span class=&#39;cp&#39;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;debug&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;params&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;Rails&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;env&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;development?&lt;/span&gt; &lt;span class=&#39;cp&#39;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&#39;x&#39; /&gt;
-&lt;span class=&#39;x&#39;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- more --&gt;
-&lt;p&gt;To make things look nicer add some SCSS.&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;scss&#39;&gt;&lt;span class=&#39;k&#39;&gt;@mixin&lt;/span&gt;&lt;span class=&#39;nf&#39;&gt; box_sizing&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
- &lt;span class=&#39;na&#39;&gt;-moz-box-sizing&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;border&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;box&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
- &lt;span class=&#39;na&#39;&gt;-webkit-box-sizing&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;border&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;box&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
- &lt;span class=&#39;na&#39;&gt;box-sizing&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;border&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;box&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
-&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
+				<description>&lt;p&gt;For displaying debug dump in Rails on development environment,
+edit &lt;code&gt;application.html.erb&lt;/code&gt;. Add this lines inside the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tag.&lt;/p&gt;
 
-&lt;span class=&#39;nc&#39;&gt;.debug_dump&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
-  &lt;span class=&#39;na&#39;&gt;clear&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;both&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
-  &lt;span class=&#39;na&#39;&gt;float&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;left&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
-  &lt;span class=&#39;na&#39;&gt;width&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;100&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;%&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
-  &lt;span class=&#39;na&#39;&gt;margin-top&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;45&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;px&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
-  &lt;span class=&#39;k&#39;&gt;@include&lt;/span&gt;&lt;span class=&#39;nd&#39;&gt; box_sizing&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
-&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;erb&quot;&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;development?&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;To make things look nicer add some SCSS.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss&quot;&gt;&lt;span class=&quot;k&quot;&gt;@mixin&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt; box_sizing&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;na&quot;&gt;-moz-box-sizing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;na&quot;&gt;-webkit-box-sizing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;na&quot;&gt;box-sizing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.debug_dump&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;both&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;@include&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt; box_sizing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
 				<pubDate>Sat, 22 Mar 2014 07:32:00 +0700</pubDate>
 				<link>http://reza.re/blog/2014/03/22/rails-debug-dump/</link>
 				<guid isPermaLink="true">http://reza.re/blog/2014/03/22/rails-debug-dump/</guid>

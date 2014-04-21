@@ -6,6 +6,7 @@ class Jekyll < Thor
   def new(*title)
     title = title.join(" ")
     date = Time.now.strftime('%Y-%m-%d')
+    datepost = Time.now.strftime('%Y-%m-%d %T')
     filename = "_posts/#{date}-#{title.to_url}.md"
 
     if File.exist?(filename)
@@ -17,7 +18,7 @@ class Jekyll < Thor
       post.puts "---"
       post.puts "layout: post"
       post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
-      post.puts "date: #{date}"
+      post.puts "date: #{datepost}"
       post.puts "tags:"
       post.puts "---"
     end

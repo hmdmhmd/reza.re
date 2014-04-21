@@ -2,6 +2,7 @@ name: Reza Jatnika
 title: Reza Jatnika
 url: http://reza.re
 description: ruby sandwich.rb
+markdown: redcarpet
 
 permalink: /blog/:year/:month/:day/:title/
 paginate: 5

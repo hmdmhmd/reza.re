@@ -120,4 +120,4 @@ Check our new application if it worked as we want it.
     $ bundle exec rake db:create
     $ rails s
 
-We can now visit `http://localhost:3000` to view our new website.
+We can now visit [`http://localhost:3000`](http://localhost:3000) to view our new website.

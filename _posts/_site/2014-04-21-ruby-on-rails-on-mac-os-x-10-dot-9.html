@@ -1,40 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Ruby on Rails on Mac OS X 10.9 | Reza Jatnika</title>
-  <meta name="viewport" content="width=device-width">
-  <link href="/assets/css/style.css" rel="stylesheet" />
-  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
-<body>
-  <header id="header">
-    <h1><a href="/"><i class="icon-sun"></i> Reza Jatnika</a></h1>
-    <p class="code">$ ruby sandwich.rb</p>
-  </header>
-  <div id="page">
-    <div id="sidebar">
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/archives">Archive</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="https://twitter.com/rezajatnika">Twitter</a></li>
-          <li><a href="/feed.xml">RSS Feed</a></li>
-        </ul>
-      </nav>
-    </div> <!-- end div.sidebar -->
-    <div id="content">
-      <h1>Ruby on Rails on Mac OS X 10.9</h1>
-      <article class="post">
-	
-    <h1><a href=""></a></h1>
-  
-  <p class="meta">Posted on <span class="postdate">Apr 21, 2014</span></p>
-  <div class="post-content"><p>This is simple guide to setting up Ruby on Rails development environment on Mac OS X 10.9 Mavericks <em>without modifying core files</em>. Older versions of OS X are mostly compatible with this guide, if you run into a problem, then try Googling it.</p>
+<p>This is simple guide to setting up Ruby on Rails development environment on Mac OS X 10.9 Mavericks <em>without modifying core files</em>. Older versions of OS X are mostly compatible with this guide, if you run into a problem, then try Googling it.</p>
 
 <h1 id="command_line_tools">Command Line Tools</h1>
 
@@ -145,41 +109,4 @@ $ cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library
 $ bundle exec rake db:create
 $ rails s</code></pre>
 
-<p>We can now visit <a href="http://localhost:3000"><code>http://localhost:3000</code></a> to view our new website.</p></div>
-</article>
-<div class="comments">
-  <h1>Comments</h1>
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-  var disqus_shortname = 'rezajatnika';
-
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-
-    </div> <!-- end div#content -->
-  </div> <!-- end div#page -->
-  <footer id="footer">
-    <p class="copyright">Copyright &copy; 2014 Reza Jatnika | Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
-  </footer>
-
-  <!-- Addition scripts -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
-  <script src="/assets/js/sidebar.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
-    });
-  </script>
-
-</body>
-</html>
+<p>We can now visit <code>http://localhost:3000</code> to view our new website.</p>

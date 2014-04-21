@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rails Debug Dump | Reza Jatnika</title>
+  <meta name="viewport" content="width=device-width">
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header id="header">
+    <h1><a href="/"><i class="icon-sun"></i> Reza Jatnika</a></h1>
+    <p class="code">$ ruby sandwich.rb</p>
+  </header>
+  <div id="page">
+    <div id="sidebar">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="https://twitter.com/rezajatnika">Twitter</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </nav>
+    </div> <!-- end div.sidebar -->
+    <div id="content">
+      <h1>Rails Debug Dump</h1>
+      <article class="post">
+	
+    <h1><a href=""></a></h1>
+  
+  <p class="meta">Posted on <span class="postdate">Mar 22, 2014</span></p>
+  <div class="post-content"><p>For displaying debug dump in Rails on development environment, edit <code>application.html.erb</code>. Add this lines inside the <code>&lt;body&gt;</code> tag.</p>
+<div class='highlight'><pre><code class='erb'><span class='x'>&lt;body&gt;</span>
+<span class='x'>  </span><span class='cp'>&lt;%=</span> <span class='k'>yield</span> <span class='cp'>%&gt;</span><span class='x' />
+<span class='x'>  </span><span class='cp'>&lt;%=</span> <span class='n'>debug</span><span class='p'>(</span><span class='n'>params</span><span class='p'>)</span> <span class='k'>if</span> <span class='no'>Rails</span><span class='o'>.</span><span class='n'>env</span><span class='o'>.</span><span class='n'>development?</span> <span class='cp'>%&gt;</span><span class='x' />
+<span class='x'>&lt;/body&gt;</span>
+</code></pre></div><!-- more -->
+<p>To make things look nicer add some SCSS.</p>
+<div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> box_sizing</span> <span class='p'>{</span>
+ <span class='na'>-moz-box-sizing</span><span class='o'>:</span> <span class='no'>border</span><span class='o'>-</span><span class='n'>box</span><span class='p'>;</span>
+ <span class='na'>-webkit-box-sizing</span><span class='o'>:</span> <span class='no'>border</span><span class='o'>-</span><span class='n'>box</span><span class='p'>;</span>
+ <span class='na'>box-sizing</span><span class='o'>:</span> <span class='no'>border</span><span class='o'>-</span><span class='n'>box</span><span class='p'>;</span>
+<span class='p'>}</span>
+
+<span class='nc'>.debug_dump</span> <span class='p'>{</span>
+  <span class='na'>clear</span><span class='o'>:</span> <span class='no'>both</span><span class='p'>;</span>
+  <span class='na'>float</span><span class='o'>:</span> <span class='no'>left</span><span class='p'>;</span>
+  <span class='na'>width</span><span class='o'>:</span> <span class='mi'>100</span><span class='kt'>%</span><span class='p'>;</span>
+  <span class='na'>margin-top</span><span class='o'>:</span> <span class='mi'>45</span><span class='kt'>px</span><span class='p'>;</span>
+  <span class='k'>@include</span><span class='nd'> box_sizing</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div></div>
+</article>
+<div class="comments">
+  <h1>Comments</h1>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'rezajatnika';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+    </div> <!-- end div#content -->
+  </div> <!-- end div#page -->
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2014 Reza Jatnika | Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+  </footer>
+
+  <!-- Addition scripts -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+  <script src="/assets/js/sidebar.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+</body>
+</html>

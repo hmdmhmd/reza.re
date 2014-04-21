@@ -119,8 +119,8 @@ $ cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library
 $ bundle exec rake db:create
 $ rails s&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We can now visit &lt;code&gt;http://localhost:3000&lt;/code&gt; to view our new website.&lt;/p&gt;</description>
-				<pubDate>Mon, 21 Apr 2014 00:00:00 +0700</pubDate>
+&lt;p&gt;We can now visit &lt;a href=&quot;http://localhost:3000&quot;&gt;&lt;code&gt;http://localhost:3000&lt;/code&gt;&lt;/a&gt; to view our new website.&lt;/p&gt;</description>
+				<pubDate>Mon, 21 Apr 2014 14:06:25 +0700</pubDate>
 				<link>http://reza.re/blog/2014/04/21/ruby-on-rails-on-mac-os-x-10-dot-9/</link>
 				<guid isPermaLink="true">http://reza.re/blog/2014/04/21/ruby-on-rails-on-mac-os-x-10-dot-9/</guid>
 			</item>
@@ -188,6 +188,34 @@ $ rails s&lt;/code&gt;&lt;/pre&gt;
 				<pubDate>Sun, 20 Apr 2014 09:06:25 +0700</pubDate>
 				<link>http://reza.re/blog/2014/04/20/html-elements/</link>
 				<guid isPermaLink="true">http://reza.re/blog/2014/04/20/html-elements/</guid>
+			</item>
+		
+			<item>
+				<title>Rails Debug Dump</title>
+				<description>&lt;p&gt;For displaying debug dump in Rails on development environment, edit &lt;code&gt;application.html.erb&lt;/code&gt;. Add this lines inside the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tag.&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;erb&#39;&gt;&lt;span class=&#39;x&#39;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class=&#39;x&#39;&gt;  &lt;/span&gt;&lt;span class=&#39;cp&#39;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;yield&lt;/span&gt; &lt;span class=&#39;cp&#39;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&#39;x&#39; /&gt;
+&lt;span class=&#39;x&#39;&gt;  &lt;/span&gt;&lt;span class=&#39;cp&#39;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;debug&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;params&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;Rails&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;env&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;development?&lt;/span&gt; &lt;span class=&#39;cp&#39;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&#39;x&#39; /&gt;
+&lt;span class=&#39;x&#39;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- more --&gt;
+&lt;p&gt;To make things look nicer add some SCSS.&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;scss&#39;&gt;&lt;span class=&#39;k&#39;&gt;@mixin&lt;/span&gt;&lt;span class=&#39;nf&#39;&gt; box_sizing&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+ &lt;span class=&#39;na&#39;&gt;-moz-box-sizing&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;border&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;box&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+ &lt;span class=&#39;na&#39;&gt;-webkit-box-sizing&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;border&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;box&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+ &lt;span class=&#39;na&#39;&gt;box-sizing&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;border&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;box&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
+
+&lt;span class=&#39;nc&#39;&gt;.debug_dump&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+  &lt;span class=&#39;na&#39;&gt;clear&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;both&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+  &lt;span class=&#39;na&#39;&gt;float&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;left&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+  &lt;span class=&#39;na&#39;&gt;width&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;100&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;%&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+  &lt;span class=&#39;na&#39;&gt;margin-top&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;45&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;px&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+  &lt;span class=&#39;k&#39;&gt;@include&lt;/span&gt;&lt;span class=&#39;nd&#39;&gt; box_sizing&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+				<pubDate>Sat, 22 Mar 2014 07:32:00 +0700</pubDate>
+				<link>http://reza.re/blog/2014/03/22/rails-debug-dump/</link>
+				<guid isPermaLink="true">http://reza.re/blog/2014/03/22/rails-debug-dump/</guid>
 			</item>
 		
 	</channel>

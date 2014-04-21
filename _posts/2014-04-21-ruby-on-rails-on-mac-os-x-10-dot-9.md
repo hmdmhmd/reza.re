@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ruby on Rails on Mac OS X 10.9"
-date: 2014-04-21
+date: 2014-04-21 07:06:25
 tags: rails
 ---
 

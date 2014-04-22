@@ -10,4 +10,4 @@ pygments: true
 destination: public
 timezone: Asia/Jakarta
 
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile', 'jekyll.thor', 'Procfile']
